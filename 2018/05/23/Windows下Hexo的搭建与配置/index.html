@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/YuanChiFun/blog-img/master/newrepo.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/YuanChiFun/blog-img/master/Creatrep.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/YuanChiFun/blog-img/master/gitpages.png">
-<meta property="og:updated_time" content="2018-05-23T12:54:49.819Z">
+<meta property="og:updated_time" content="2018-05-23T13:26:21.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下 Hexo 的搭建与配置">
 <meta name="twitter:description" content="一、安装Hexo安装Git 下载并安装Git 不会Git的同学请学习Git的使用">
@@ -400,7 +400,7 @@
       
 
       
-        <h1 id="一、安装Hexo"><a href="#一、安装Hexo" class="headerlink" title="一、安装Hexo"></a>一、<strong>安装Hexo</strong></h1><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a><strong>安装Git</strong></h3><ul>
+        <h2 id="一、安装Hexo"><a href="#一、安装Hexo" class="headerlink" title="一、安装Hexo"></a>一、安装Hexo</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a><strong>安装Git</strong></h3><ul>
 <li>下载并安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a></li>
 <li>不会Git的同学请学习<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git的使用</a></li>
 </ul>
@@ -410,28 +410,31 @@
 <li>下载并安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
 </ul>
 <blockquote>
-<h5 id="在安装Node-js请勾选Add-to-PATH将Node-js添加到环境变量中"><a href="#在安装Node-js请勾选Add-to-PATH将Node-js添加到环境变量中" class="headerlink" title="在安装Node.js请勾选Add to PATH将Node.js添加到环境变量中"></a>在安装Node.js请勾选Add to PATH将Node.js添加到环境变量中</h5></blockquote>
+<p>在安装Node.js请勾选Add to PATH将Node.js添加到环境变量中</p>
+</blockquote>
 <hr>
 <h3 id="安装Cmder"><a href="#安装Cmder" class="headerlink" title="安装Cmder"></a>安装Cmder</h3><ul>
 <li>下载并安装<a href="http://cmder.net/" target="_blank" rel="noopener">Cmder</a></li>
 <li>将Cmder添加到环境变量下：右键我的电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;双击Path-&gt;将Cmder的安装路径添加进去</li>
 <li>打开Cmder输入<code>Cmder.exe /REGISTER ALL</code></li>
 <li>完成上述步骤后，我们在任何地方右键都会有一个Cmder Here<blockquote>
-<h5 id="windows下我比较喜欢Cmder，也可以直接用Git-bash"><a href="#windows下我比较喜欢Cmder，也可以直接用Git-bash" class="headerlink" title="windows下我比较喜欢Cmder，也可以直接用Git bash"></a>windows下我比较喜欢Cmder，也可以直接用Git bash</h5></blockquote>
+<p>windows下我比较喜欢Cmder，也可以直接用Git bash</p>
+</blockquote>
 </li>
 </ul>
 <hr>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><ul>
 <li>创建一个文件夹blog</li>
 <li>Cmder Here</li>
-<li>使用npm安装Hexo：<code>$ npm install -g hexo-cli</code><h1 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init </span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-</li>
+<li>使用npm安装Hexo：<code>$ npm install -g hexo-cli</code>  </li>
 </ul>
+<h2 id="二、建站"><a href="#二、建站" class="headerlink" title="二、建站"></a>二、建站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init </span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 <h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的配置信息，可以在此配置大部分参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site //网站</span><br><span class="line">title: YuanChiFun&apos;s studio //网站标题</span><br><span class="line">subtitle:  //网站副标题</span><br><span class="line">description: An excellent front-end Engineer //网站描述</span><br><span class="line">keywords:</span><br><span class="line">author: YuanChiFun //名字</span><br><span class="line">language: zh-Hans //网站使用的语言，我这里是中文</span><br><span class="line">timezone:  //网站时区，Hexo默认使用电脑的时区</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: false</span><br><span class="line">  tab_replace:</span><br><span class="line">  </span><br><span class="line"># Home page setting</span><br><span class="line"># path: Root path for your blogs index page. (default = &apos;&apos;)</span><br><span class="line"># per_page: Posts displayed per page. (0 = disable pagination)</span><br><span class="line"># order_by: Posts order. (Order by date descending by default)</span><br><span class="line">index_generator:</span><br><span class="line">  path: &apos;&apos;</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -date</span><br><span class="line">  </span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>通常没有必要修改这一部分的内容</p>
 </blockquote>
+<hr>
 <h3 id="搭桥到github"><a href="#搭桥到github" class="headerlink" title="搭桥到github"></a>搭桥到<a href="https://github.com/" target="_blank" rel="noopener">github</a></h3><ul>
 <li>没有账号的创建一个账号</li>
 <li>创建一个New repository,如下图所示：</li>
@@ -445,22 +448,25 @@
 <li>进入刚才创建的仓库的setting里，找到GitHub Pages,在这里可以选择一个自己喜欢的主题使用。博主的主题叫next，后面会告诉大家怎么配置这个主题，实现跟博主一样的效果</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/YuanChiFun/blog-img/master/gitpages.png" alt=""></p>
+<hr>
 <ul>
-<li><p>打开你的<code>_config.yml</code>,修改文件的一些配置</p>
+<li>打开你的<code>_config.yml</code>,修改文件的一些配置</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/githubName/githubName.github.io.git    //刚才建立的githubName.github.io仓库的http链接</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入你的blog目录，Cmder Here，执行以下命令,我们在浏览器里输入<code>http://localhost:4000/</code>，我们就能在本地服务器上看到我们的博客了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br><span class="line">npm i hexo-server //如果hexo server使用不了，可能是没有安装hexo server，使用该命令安装就好了</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接下来，我们要将我们之前做好的一切上传到Github上了</p>
 <ul>
+<li>进入你的blog目录，Cmder Here，执行以下命令,我们在浏览器里输入<code>http://localhost:4000/</code>，我们就能在本地服务器上看到我们的博客了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br><span class="line">npm i hexo-server //如果hexo server使用不了，可能是没有安装hexo server，使用该命令安装就好了</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接下来，我们要将我们之前做好的一切上传到Github上了<ul>
 <li>上传之前，我们需要安装非常重要的东西<code>npm install hexo-deployer-git --save</code></li>
-<li>然后我们就着手上传了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo generate</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-</li>
+<li>然后我们就着手上传了</li>
 </ul>
 </li>
 </ul>
-<h4 id="接下来，我们在浏览器打开githubName-github-io，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置"><a href="#接下来，我们在浏览器打开githubName-github-io，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置" class="headerlink" title="接下来，我们在浏览器打开githubName.github.io，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置"></a>接下来，我们在浏览器打开<code>githubName.github.io</code>，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo generate</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p> <strong>接下来，我们在浏览器打开<code>githubName.github.io</code>，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置</strong></p>
+
       
     </div>
     
@@ -616,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">一、安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">1.0.2.</span> <span class="nav-text">安装Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在安装Node-js请勾选Add-to-PATH将Node-js添加到环境变量中"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">在安装Node.js请勾选Add to PATH将Node.js添加到环境变量中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Cmder"><span class="nav-number">1.0.3.</span> <span class="nav-text">安装Cmder</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#windows下我比较喜欢Cmder，也可以直接用Git-bash"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">windows下我比较喜欢Cmder，也可以直接用Git bash</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.0.4.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、建站"><span class="nav-number">2.</span> <span class="nav-text">二、建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml"><span class="nav-number">2.0.1.</span> <span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭桥到github"><span class="nav-number">2.0.2.</span> <span class="nav-text">搭桥到github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来，我们在浏览器打开githubName-github-io，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">接下来，我们在浏览器打开githubName.github.io，我们就能看到属于我们自己的博客。没看到的朋友也不要着急，上传到github上也需要一点时间的，去打一盘游戏，回来就好了。我的下一篇会介绍主题的配置，主要是我的这个next主题的配置</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装Hexo"><span class="nav-text">一、安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Cmder"><span class="nav-text">安装Cmder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、建站"><span class="nav-text">二、建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml"><span class="nav-text">_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭桥到github"><span class="nav-text">搭桥到github</span></a></li></ol></li></ol></div>
             
 
           </div>
