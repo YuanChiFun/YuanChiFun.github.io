@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #000000; /*进度条颜色*/
+        height: 1px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 5px #000000, 0 0 5px     #000000; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-VUE," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/pirlo.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="VUE使用步骤引包启动Vue  new Vue()">
+<meta name="keywords" content="-VUE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE">
+<meta property="og:url" content="http://yoursite.com/2019/01/22/VUE/index.html">
+<meta property="og:site_name" content="YuanChiFun&#39;s studio">
+<meta property="og:description" content="VUE使用步骤引包启动Vue  new Vue()">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T02:23:47.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VUE">
+<meta name="twitter:description" content="VUE使用步骤引包启动Vue  new Vue()">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/22/VUE/"/>
+
+
+
+
+
+  <title>VUE | YuanChiFun's studio</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/YuanChiFun" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuanChiFun's studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/VUE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuanChiFun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/pirlo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuanChiFun's studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VUE</h1>
+        
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T10:17:10+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VUE/" itemprop="url" rel="index">
+                    <span itemprop="name">-VUE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h1><h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><h3 id="引包"><a href="#引包" class="headerlink" title="引包"></a>引包</h3><h3 id="启动Vue"><a href="#启动Vue" class="headerlink" title="启动Vue"></a>启动Vue</h3><blockquote>
+<p> new Vue()</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="配置options对象"><a href="#配置options对象" class="headerlink" title="配置options对象"></a>配置options对象</h3><ul>
+<li>el:目的地；<ul>
+<li>template:模板；</li>
+<li>data: function(){return {要使用的key:value}}</li>
+</ul>
+</li>
+</ul>
+<h3 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h3><p><strong></strong></p>
+<ul>
+<li>对象</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li>三元表达式</li>
+</ul>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p><strong>以v-xxx表示</strong></p>
+<ul>
+<li>v-text : inner-text</li>
+<li>v-html : innerHTML</li>
+<li>v-if  : 判断是否加入这个元素</li>
+<li>v-else-if</li>
+<li>v-else</li>
+<li>v-show：隐藏元素，相当于给元素添加了display:none</li>
+<li>v-bind:给元素属性赋值（单向）<ul>
+<li>v-bind:属性名 = “变量”</li>
+</ul>
+</li>
+<li>v-on:给元素添加事件<ul>
+<li>v-on:原生事件名 = “给变量进行操作||函数名”</li>
+</ul>
+</li>
+<li>v-model:双向数据流绑定<ul>
+<li>v-model = “变量名”</li>
+</ul>
+</li>
+<li>v-for<ul>
+<li>数组：v-for = “item/(item,index) in Array”</li>
+<li>对象：v-for = “item/(item,key,index) in obj”</li>
+</ul>
+</li>
+<li>methods:这里的this就是data函数return出去的对象，这里的this是指向，不是事件对象。</li>
+</ul>
+<h3 id="组件渲染"><a href="#组件渲染" class="headerlink" title="组件渲染"></a>组件渲染</h3><ul>
+<li>components:声明要用的组件，key是组件名，value是组件对象。</li>
+</ul>
+<h3 id="注册全局组件"><a href="#注册全局组件" class="headerlink" title="注册全局组件"></a>注册全局组件</h3><p><strong>公共性组件，不必每次都声明</strong></p>
+<ul>
+<li>Vue.component(‘组件名’，组件对象)；</li>
+</ul>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
+<li>filter||filters<ul>
+<li>全局过滤器（给数据添油加醋显示）：Vue.filter(‘过滤器名’，过滤方式fn)；</li>
+<li>组件内：filters:(‘过滤器名’，过滤方式fn)；</li>
+</ul>
+</li>
+</ul>
+<h3 id="监视"><a href="#监视" class="headerlink" title="监视"></a>监视</h3><ul>
+<li><p>watch:监视一个数据</p>
+<p><strong>复杂数据要深度监视</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```监视的事务名：function()&#123;return 显示一些内容&#125;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用：</li>
+</ul>
+<p><strong>包含原值不换，缓存不变的机制</strong></p>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><p><strong>父组件传递的DOM结构，vue提供的内置组件</strong></p>
+<p><code>&lt;slot name:&quot;&quot;&gt;&lt;/slot&gt;</code></p>
+<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><p>1.beforeCreate:组件创建之前    </p>
+<p>2.created:组件创建之后 ，可以操作数据，可以实现vue-&gt;页面的影响，应用：发起ajax请求    </p>
+<p>3.beforeMount:vue起作用，装载数据表到Dom之前                                      只执行一次    </p>
+<p>4.mounted: —————-之后    </p>
+<p>5.boforeUpdate:  基于数据改变影响页面，当有数据才会触发 获取原DOM    </p>
+<p>6.updated：获取新DOM    </p>
+<p>7.beforeDestory:销毁之前   对应父组件 v-if false   </p>
+<p>8.destoryed:销毁之后    </p>
+<p>9.activated:    </p>
+<p>10.deactivated: </p>
+<p><code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code><strong>内置组件，如果有keep-alive，v-if控制的是组件的激活，没有的话控制的是组建的销毁</strong></p>
+<h3 id="获取DOM元素"><a href="#获取DOM元素" class="headerlink" title="获取DOM元素"></a>获取DOM元素</h3><ul>
+<li>在组件的DOM部分，任意标签中，写上ref=’xxx’;</li>
+<li>通过组件对象this.$ref.xxx，获取到元素</li>
+<li>希望Vue真正渲染DOM到页面以后，才做的事<ul>
+<li>this.$nextTick(function(){<pre><code>this.$refs.xxx.操作名})
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><h4 id="SPA"><a href="#SPA" class="headerlink" title="SPA"></a>SPA</h4><ul>
+<li>SPA锚点值改变后，不会发起请求，发起ajax请求，局部改变页面数据<ul>
+<li>页面不跳转，用户体验更好</li>
+</ul>
+</li>
+<li>haschange事件：url上的部分锚点数据(#xxx)改变，可以获取到这个事件</li>
+</ul>
+<h4 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h4><ul>
+<li><p>核心插件，需要引入vue-router.js</p>
+</li>
+<li><p>操作</p>
+<ul>
+<li><p>引入</p>
+</li>
+<li><p>安装插件 </p>
+<blockquote>
+<p>Vue.use(VueRouter);</p>
+</blockquote>
+</li>
+<li><p>创建一个路由对象</p>
+<blockquote>
+<p> var router = new VueRouter({</p>
+<p> //配置路由对象</p>
+<p> routes:[{path:’login’,component:Login}]</p>
+<p> })</p>
+<p> 也可以使用：</p>
+<p> router.addRoutes([</p>
+<p> ​    {</p>
+<p> ​    path:’login’,component:Login</p>
+<p> }</p>
+<p> ])</p>
+<p> 这样更为灵活的添加路由规则</p>
+</blockquote>
+</li>
+<li><p>配置路由对象</p>
+</li>
+<li><p>将配置好的路由对象关联到vue事例中</p>
+<blockquote>
+<p>new Vue({<br>el:’#app’,</p>
+<p>router:router,//不加这一步，会导致运行的时候说undefined对象中取不到匹配的</p>
+<p>components:{</p>
+<p>​    app:App</p>
+<p>}</p>
+<p>template:<code>&lt;app/&gt;</code></p>
+<p>})</p>
+</blockquote>
+</li>
+<li><p>指定路由改变局部的位置</p>
+<blockquote>
+<p>var App={</p>
+<p>​    template:`</p>
+<p>​    <div></div></p>
+<p>​        <router-view></router-view></p>
+<p>​    </p>
+<p>​            `</p>
+<p>}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="router-link"><a href="#router-link" class="headerlink" title="router-link"></a>router-link</h3><ul>
+<li><p>内置对象</p>
+</li>
+<li><p>路由对象有了名称就等于有了变量名，router-link只需说明这个变量名就行了，需要加一个冒号绑定to</p>
+<p><code>&lt;router-link :to=&quot;{ name:&#39;xxx&#39; }&quot;&gt;&lt;/router-link&gt;</code></p>
+</li>
+<li><p>查询字符串 </p>
+<ul>
+<li>配置：to=”{name:’xxx’,query:{参数:abc} }”</li>
+<li>规则：{name:’xxx’,path:’/xxx’}</li>
+<li>获取：this.$route.query.id</li>
+<li>生成：<a href="/xxx?参数：abc"></a></li>
+</ul>
+</li>
+<li><p>Path方式</p>
+<ul>
+<li>配置：to=”{name:’xxx’,params:{参数：abc} }”</li>
+<li>规则：{name:’xxx’,path:’/xxx/:参数’}</li>
+<li>获取：this.$route.params.id</li>
+<li>生成：<a href="/xxx/abc"></a></li>
+</ul>
+</li>
+<li><p>查询字符串配置参数</p>
+<ul>
+<li>router-link一次</li>
+<li>获取的时候一次</li>
+</ul>
+</li>
+<li><p>path配置参数</p>
+<ul>
+<li>router-link一次</li>
+<li>规则配置的时候声明位置</li>
+<li>获取的时候一次 </li>
+</ul>
+</li>
+</ul>
+<h3 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h3><ul>
+<li>router-view包含router-view</li>
+<li>children路由，和name同级</li>
+</ul>
+<h3 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h3><ul>
+<li>路由meta元数据<ul>
+<li>meta是对于路由规则是否需要验证权限配置</li>
+<li>路由对象中和name属性同级<code>{meta:{isChecked:true}}</code></li>
+</ul>
+</li>
+<li>路由钩子<ul>
+<li>权限控制的函数执行时期</li>
+<li>每次路由匹配后，渲染到组件到touter-view之前</li>
+<li><code>router.beforeEach(function(to,form,next){})</code><ul>
+<li>to：从哪里来</li>
+<li>from：到哪里去</li>
+<li>next：放行，不调用next就会卡住<ul>
+<li>next()放行</li>
+<li>next(false)不放行</li>
+<li>next({name:’xxx’})重定向</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编程导航</p>
+<ul>
+<li>跳到指定的锚点，并显示页面<code>this.$router.push({name:&#39;xxx&#39;,query:{id:1},params:{name:&#39;abc&#39;}})</code></li>
+<li>配置规则<code>{name:&#39;xxx&#39;,path:&#39;/xxx/:name&#39;}</code>query会拼到params后面</li>
+<li>根据历史记录前进后退：<ul>
+<li>this.$router.go(-1|1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p><code>Vue.prototype.$axios = axios;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 取消请求</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">const CancelToken = axios.CancelToken;</span><br><span class="line">const sourse = CancelToken.sourse();//创建标识请求的源对象</span><br><span class="line">var fd = FormData();</span><br><span class="line">this.$axios.post(&apos;url&apos;,fd,&#123;</span><br><span class="line">	cancaelToken:source.token,  //请求的option属性</span><br><span class="line">&#125;)</span><br><span class="line">this.source.cancel(); //取消到之前的那个请求</span><br><span class="line">//前端的断点续传，将当前获取上传的文件大小，存储起来</span><br><span class="line">var fileData = this.file.slice(this.loaded+1,this.file.size);</span><br><span class="line">var fd = FormData();</span><br><span class="line">fd.append(&apos;file&apos;,fileData);</span><br><span class="line"></span><br><span class="line">//后台就是接收多次文件。</span><br></pre></td></tr></table></figure>
+<h4 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h4><ul>
+<li>配置拦截器</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//配置拦截器，use给请求之前做的事可以是多件,可以use多次</span></span><br><span class="line"><span class="keyword">this</span>.$axios.interceptors.request.use(<span class="function"><span class="keyword">function</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(config); <span class="comment">//输出的是options</span></span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//响应拦截器</span></span><br><span class="line"><span class="keyword">this</span>.$axios.interceptors.response.use(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res);<span class="comment">//res.config</span></span><br><span class="line">    <span class="keyword">return</span> res; </span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">this</span>.post(<span class="string">'url'</span>,,option)</span><br><span class="line">.then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'响应回来了'</span>,res);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(err)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><ul>
+<li>导入<ul>
+<li><code>import xxx from &#39;路径&#39;</code></li>
+</ul>
+</li>
+<li>导出<ul>
+<li><code>export default abc</code></li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VUE/" rel="tag"><i class="fa fa-tag"></i> -VUE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/24/焦点轮播图demo/" rel="next" title="无限滚动轮播图">
+                <i class="fa fa-chevron-left"></i> 无限滚动轮播图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/pirlo.jpg"
+               alt="YuanChiFun" />
+          <p class="site-author-name" itemprop="name">YuanChiFun</p>
+           
+              <p class="site-description motion-element" itemprop="description">An excellent front-end Engineer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YuanChiFun" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/YuanChiFun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VUE"><span class="nav-text">VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用步骤"><span class="nav-text">使用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引包"><span class="nav-text">引包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Vue"><span class="nav-text">启动Vue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置options对象"><span class="nav-text">配置options对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插值表达式"><span class="nav-text">插值表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令"><span class="nav-text">指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件渲染"><span class="nav-text">组件渲染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册全局组件"><span class="nav-text">注册全局组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器"><span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监视"><span class="nav-text">监视</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slot"><span class="nav-text">slot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件生命周期"><span class="nav-text">组件生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取DOM元素"><span class="nav-text">获取DOM元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由"><span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SPA"><span class="nav-text">SPA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-router"><span class="nav-text">vue-router</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#router-link"><span class="nav-text">router-link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套路由"><span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta"><span class="nav-text">meta</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios"><span class="nav-text">axios</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本使用"><span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器"><span class="nav-text">拦截器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化"><span class="nav-text">模块化</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanChiFun</span>
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>&emsp;
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+<!-- <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
