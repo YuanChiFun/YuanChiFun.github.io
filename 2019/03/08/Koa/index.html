@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #000000; /*进度条颜色*/
+        height: 1px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 5px #000000, 0 0 5px     #000000; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="-node," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/pirlo.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="安装1npm install koa@latest -D --registry=https://registry.npm.taobao.org">
+<meta name="keywords" content="-node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Koa 基础语法">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/Koa/index.html">
+<meta property="og:site_name" content="YuanChiFun&#39;s studio">
+<meta property="og:description" content="安装1npm install koa@latest -D --registry=https://registry.npm.taobao.org">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T13:04:58.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Koa 基础语法">
+<meta name="twitter:description" content="安装1npm install koa@latest -D --registry=https://registry.npm.taobao.org">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/Koa/"/>
+
+
+
+
+
+  <title>Koa 基础语法 | YuanChiFun's studio</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/YuanChiFun" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuanChiFun's studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/Koa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YuanChiFun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/pirlo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuanChiFun's studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Koa 基础语法</h1>
+        
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T21:04:35+08:00">
+                2019-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">-node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa@latest -D --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h1><p>Koa应用程序是一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的。</p>
+<p>简单的Koa使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx=&gt;&#123;</span><br><span class="line">    ctx.body = <span class="string">'Koa'</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">2333</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="级联"><a href="#级联" class="headerlink" title="级联"></a>级联</h2><p>Koa中间件以更传统的方式级联，使用<code>async</code>功能，可以实现真实的中间件，通过一系列工程直接传递控制，直到一个返回。Koa调用“下游”，然后控制流回“上流”</p>
+<p>通过以下代码我们可以了解此机制。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span>(ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span>(ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span>(ctx, next) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'http://192.168.1.118:2333'</span>);</span><br><span class="line">app.listen(<span class="number">2333</span>);</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>当一个中间件调用<code>next()</code>则该函数暂停并将控制传递控定义的下一个中间件。当在下游没有中间件执行后，堆栈将展开并且每个中间件恢复执行其上游行为</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>应用程序设置是app实例上的属性</p>
+<h3 id="app-listen"><a href="#app-listen" class="headerlink" title="app.listen()"></a>app.listen()</h3><p>Koa应用程序不是HTTP服务器的一对一展现，可以将一个或多个Koa应用程序安装在一起以形成具有单个HTTP服务器的更大应用。</p>
+<p>用法：</p>
+<p>以下是一个Koa应用程序被绑定在2333端口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line">app.listen(<span class="number">2333</span>);</span><br></pre></td></tr></table></figure>
+<p><code>app.listen</code>是以下方法的语法糖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line">http.createServer(app.callback()).listen(<span class="number">2333</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="app-callback"><a href="#app-callback" class="headerlink" title="app.callback()"></a>app.callback()</h3><p>返回适用于<code>http.createServer()</code>方法的回调函数来处理请求</p>
+<h3 id="app-use"><a href="#app-use" class="headerlink" title="app.use()"></a>app.use()</h3><p>将给定的中间件方法添加到此应用程序中</p>
+<h3 id="app-keys"><a href="#app-keys" class="headerlink" title="app.keys"></a>app.keys</h3><p>设置签名的Cookie密钥</p>
+<h3 id="app-context"><a href="#app-context" class="headerlink" title="app.context"></a>app.context</h3><p><code>app.context</code> 是从其创建 <code>ctx</code> 的原型。您可以通过编辑 <code>app.context</code> 为 <code>ctx</code> 添加其他属性。这对于将 <code>ctx</code> 添加到整个应用程序中使用的属性或方法非常有用，这可能会更加有效，更简单。而更多地依赖于<code>ctx</code>，这可以被认为是一种反模式。</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>默认情况下，将所有错误输出到 stderr，除非 <code>app.silent</code> 为 <code>true</code>。 当 <code>err.status</code> 是 <code>404</code> 或 <code>err.expose</code> 是 <code>true</code> 时默认错误处理程序也不会输出错误。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.on(<span class="string">'error'</span>, (err, ctx) =&gt; &#123;</span><br><span class="line">  log.error(<span class="string">'server error'</span>, err, ctx)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果 req/res 期间出现错误，并且无法响应客户端，<code>Context</code>实例仍然被传递：</p>
+<h1 id="上下文（Context）"><a href="#上下文（Context）" class="headerlink" title="上下文（Context）"></a>上下文（Context）</h1><p>Koa Context将node的<code>request</code>和<code>response</code>对象封装到单个对象中，为编写Web应用程序和API提供了许多有用的方法。</p>
+<p>每个请求都将创建一个Context，并在中间件中作为接收器引用，或者<code>ctx</code>标识符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx=&gt;&#123;</span><br><span class="line">    ctx;<span class="comment">//Context</span></span><br><span class="line">    ctx.request;<span class="comment">//Koa Request</span></span><br><span class="line">    ctx.response;<span class="comment">//Koa Response</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="ctx-req"><a href="#ctx-req" class="headerlink" title="ctx.req"></a>ctx.req</h3><p>Node 的<code>request</code>对象</p>
+<p>###ctx.res</p>
+<p>Node的<code>response</code>对象</p>
+<p>绕过Koa的response处理是不被支持的。</p>
+<p>###ctx.request</p>
+<p>Koa的<code>request</code>对象</p>
+<p>###ctx.response</p>
+<p>Koa的<code>response</code>对象</p>
+<p>###ctx.state</p>
+<p>推荐的命名空间，用于通过中间件传递信息和前端视图</p>
+<p>###ctx.app</p>
+<p>应用程序实例应用</p>
+<p>###ctx.cookies.get(name,[options])</p>
+<p>通过<code>options</code>获取cookies <code>name</code></p>
+<p>###ctx.cookies.set(anme,value,[options])</p>
+<p>通过<code>options</code>设置cookie<code>name</code>的<code>value</code></p>
+<ul>
+<li><code>maxAge</code> 一个数字表示从 Date.now() 得到的毫秒数</li>
+<li><code>signed</code> cookie 签名值</li>
+<li><code>expires</code> cookie 过期的 <code>Date</code></li>
+<li><code>path</code> cookie 路径, 默认是<code>&#39;/&#39;</code></li>
+<li><code>domain</code> cookie 域名</li>
+<li><code>secure</code> 安全 cookie</li>
+<li><code>httpOnly</code> 服务器可访问 cookie, 默认是 <strong>true</strong></li>
+<li><code>overwrite</code> 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 <strong>false</strong>). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。</li>
+</ul>
+<p>###ctx.throw([status],[msg],[properties])</p>
+<p>Helper方法抛出一个<code>.status</code>属性默认为500的错误</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.throw(<span class="number">400</span>);</span><br><span class="line">ctx.throw(<span class="number">400</span>, <span class="string">'name required'</span>);</span><br><span class="line">ctx.throw(<span class="number">400</span>, <span class="string">'name required'</span>, &#123; <span class="attr">user</span>: user &#125;);</span><br></pre></td></tr></table></figure>
+<p>###ctx.assert(value, [status], [msg], [properties])</p>
+<p>当 <code>!value</code> 时，Helper 方法抛出类似于 <code>.throw()</code> 的错误。这与 node 的 <a href="http://nodejs.org/api/assert.html" target="_blank" rel="noopener">assert()</a> 方法类似.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.assert(ctx.state.user, <span class="number">401</span>, <span class="string">'User not found. Please login!'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="请求-Request"><a href="#请求-Request" class="headerlink" title="请求(Request)"></a>请求(Request)</h1><p>Koa <code>Request</code> 对象是在 node 的 vanilla 请求对象之上的抽象，提供了诸多对 HTTP 服务器开发有用的功能。</p>
+<h2 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h2><h3 id="request-header"><a href="#request-header" class="headerlink" title="request.header"></a>request.header</h3><p>请求标头对象。</p>
+<h3 id="request-header-1"><a href="#request-header-1" class="headerlink" title="request.header="></a>request.header=</h3><p>设置请求标头对象。</p>
+<h3 id="request-headers"><a href="#request-headers" class="headerlink" title="request.headers"></a>request.headers</h3><p>请求标头对象。别名为 <code>request.header</code>.</p>
+<h3 id="request-headers-1"><a href="#request-headers-1" class="headerlink" title="request.headers="></a>request.headers=</h3><p>设置请求标头对象。别名为 <code>request.header=</code>.</p>
+<h3 id="request-method"><a href="#request-method" class="headerlink" title="request.method"></a>request.method</h3><p>请求方法。</p>
+<h3 id="request-method-1"><a href="#request-method-1" class="headerlink" title="request.method="></a>request.method=</h3><p>设置请求方法，对于实现诸如 <code>methodOverride()</code> 的中间件是有用的。</p>
+<h3 id="request-length"><a href="#request-length" class="headerlink" title="request.length"></a>request.length</h3><p>返回以数字返回请求的 Content-Length，或 <code>undefined</code>。</p>
+<h3 id="request-url"><a href="#request-url" class="headerlink" title="request.url"></a>request.url</h3><p>获取请求 URL.</p>
+<h3 id="request-url-1"><a href="#request-url-1" class="headerlink" title="request.url="></a>request.url=</h3><p>设置请求 URL, 对 url 重写有用。</p>
+<h3 id="request-originalUrl"><a href="#request-originalUrl" class="headerlink" title="request.originalUrl"></a>request.originalUrl</h3><p>获取请求原始URL。</p>
+<h3 id="request-origin"><a href="#request-origin" class="headerlink" title="request.origin"></a>request.origin</h3><p>获取URL的来源，包括 <code>protocol</code> 和 <code>host</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.request.origin</span><br><span class="line"><span class="comment">// =&gt; http://example.com</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-href"><a href="#request-href" class="headerlink" title="request.href"></a>request.href</h3><p>获取完整的请求URL，包括 <code>protocol</code>，<code>host</code> 和 <code>url</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.request.href;</span><br><span class="line"><span class="comment">// =&gt; http://example.com/foo/bar?q=1</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-path"><a href="#request-path" class="headerlink" title="request.path"></a>request.path</h3><p>获取请求路径名。</p>
+<h3 id="request-path-1"><a href="#request-path-1" class="headerlink" title="request.path="></a>request.path=</h3><p>设置请求路径名，并在存在时保留查询字符串。</p>
+<h3 id="request-querystring"><a href="#request-querystring" class="headerlink" title="request.querystring"></a>request.querystring</h3><p>根据 <code>?</code> 获取原始查询字符串.</p>
+<h3 id="request-querystring-1"><a href="#request-querystring-1" class="headerlink" title="request.querystring="></a>request.querystring=</h3><p>设置原始查询字符串。</p>
+<h3 id="request-search"><a href="#request-search" class="headerlink" title="request.search"></a>request.search</h3><p>使用 <code>?</code> 获取原始查询字符串。</p>
+<h3 id="request-search-1"><a href="#request-search-1" class="headerlink" title="request.search="></a>request.search=</h3><p>设置原始查询字符串。</p>
+<h3 id="request-host"><a href="#request-host" class="headerlink" title="request.host"></a>request.host</h3><p>获取当前主机（hostname:port）。当 <code>app.proxy</code> 是 <strong>true</strong> 时支持 <code>X-Forwarded-Host</code>，否则使用 <code>Host</code>。</p>
+<h3 id="request-hostname"><a href="#request-hostname" class="headerlink" title="request.hostname"></a>request.hostname</h3><p>存在时获取主机名。当 <code>app.proxy</code> 是 <strong>true</strong> 时支持 <code>X-Forwarded-Host</code>，否则使用 <code>Host</code>。</p>
+<h3 id="request-URL"><a href="#request-URL" class="headerlink" title="request.URL"></a>request.URL</h3><p>获取 WHATWG 解析的 URL 对象。</p>
+<h3 id="request-type"><a href="#request-type" class="headerlink" title="request.type"></a>request.type</h3><p>获取请求 <code>Content-Type</code> 不含参数 “charset”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ct = ctx.request.type;</span><br><span class="line"><span class="comment">// =&gt; "image/png"</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-charset"><a href="#request-charset" class="headerlink" title="request.charset"></a>request.charset</h3><p>在存在时获取请求字符集，或者 <code>undefined</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.request.charset;</span><br><span class="line"><span class="comment">// =&gt; "utf-8"</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-query"><a href="#request-query" class="headerlink" title="request.query"></a>request.query</h3><p>获取解析的查询字符串, 当没有查询字符串时，返回一个空对象。请注意，此 getter _不_ 支持嵌套解析。</p>
+<p>例如 “color=blue&amp;size=small”:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  color: <span class="string">'blue'</span>,</span><br><span class="line">  size: <span class="string">'small'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="request-query-1"><a href="#request-query-1" class="headerlink" title="request.query="></a>request.query=</h3><p>将查询字符串设置为给定对象。 请注意，此 setter _不_ 支持嵌套对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.query = &#123; <span class="attr">next</span>: <span class="string">'/login'</span> &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="request-fresh"><a href="#request-fresh" class="headerlink" title="request.fresh"></a>request.fresh</h3><p>检查请求缓存是否“新鲜”，也就是内容没有改变。此方法用于 <code>If-None-Match</code> / <code>ETag</code>, 和 <code>If-Modified-Since</code> 和 <code>Last-Modified</code> 之间的缓存协商。 在设置一个或多个这些响应头后应该引用它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新鲜度检查需要状态20x或304</span></span><br><span class="line">ctx.status = <span class="number">200</span>;</span><br><span class="line">ctx.set(<span class="string">'ETag'</span>, <span class="string">'123'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存是好的</span></span><br><span class="line"><span class="keyword">if</span> (ctx.fresh) &#123;</span><br><span class="line">  ctx.status = <span class="number">304</span>;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存是陈旧的</span></span><br><span class="line"><span class="comment">// 获取新数据</span></span><br><span class="line">ctx.body = <span class="keyword">await</span> db.find(<span class="string">'something'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="request-stale"><a href="#request-stale" class="headerlink" title="request.stale"></a>request.stale</h3><p>与 <code>request.fresh</code>相反.</p>
+<h3 id="request-protocol"><a href="#request-protocol" class="headerlink" title="request.protocol"></a>request.protocol</h3><p>返回请求协议，“https” 或 “http”。当 <code>app.proxy</code> 是 <strong>true</strong> 时支持 <code>X-Forwarded-Proto</code>。</p>
+<h3 id="request-secure"><a href="#request-secure" class="headerlink" title="request.secure"></a>request.secure</h3><p>通过 <code>ctx.protocol == &quot;https&quot;</code> 来检查请求是否通过 TLS 发出。</p>
+<h3 id="request-ip"><a href="#request-ip" class="headerlink" title="request.ip"></a>request.ip</h3><p>请求远程地址。 当 <code>app.proxy</code> 是 <strong>true</strong> 时支持 <code>X-Forwarded-Proto</code>。</p>
+<h3 id="request-ips"><a href="#request-ips" class="headerlink" title="request.ips"></a>request.ips</h3><p>当 <code>X-Forwarded-For</code> 存在并且 <code>app.proxy</code> 被启用时，这些 ips 的数组被返回，从上游 - &gt;下游排序。 禁用时返回一个空数组。</p>
+<h3 id="request-subdomains"><a href="#request-subdomains" class="headerlink" title="request.subdomains"></a>request.subdomains</h3><p>将子域返回为数组。</p>
+<p>子域是应用程序主域之前主机的点分隔部分。默认情况下，应用程序的域名假定为主机的最后两个部分。这可以通过设置 <code>app.subdomainOffset</code> 来更改。</p>
+<p>例如，如果域名为“tobi.ferrets.example.com”：</p>
+<p>如果 <code>app.subdomainOffset</code> 未设置, <code>ctx.subdomains</code> 是 <code>[&quot;ferrets&quot;, &quot;tobi&quot;]</code>. 如果 <code>app.subdomainOffset</code> 是 3, <code>ctx.subdomains</code> 是 <code>[&quot;tobi&quot;]</code>.</p>
+<h3 id="request-is-types…"><a href="#request-is-types…" class="headerlink" title="request.is(types…)"></a>request.is(types…)</h3><p>检查传入请求是否包含 <code>Content-Type</code> 头字段， 并且包含任意的 mime <code>type</code>。 如果没有请求主体，返回 <code>null</code>。 如果没有内容类型，或者匹配失败，则返回 <code>false</code>。 反之则返回匹配的 content-type。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 Content-Type: text/html; charset=utf-8</span></span><br><span class="line">ctx.is(<span class="string">'html'</span>); <span class="comment">// =&gt; 'html'</span></span><br><span class="line">ctx.is(<span class="string">'text/html'</span>); <span class="comment">// =&gt; 'text/html'</span></span><br><span class="line">ctx.is(<span class="string">'text/*'</span>, <span class="string">'text/html'</span>); <span class="comment">// =&gt; 'text/html'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当 Content-Type 是 application/json 时</span></span><br><span class="line">ctx.is(<span class="string">'json'</span>, <span class="string">'urlencoded'</span>); <span class="comment">// =&gt; 'json'</span></span><br><span class="line">ctx.is(<span class="string">'application/json'</span>); <span class="comment">// =&gt; 'application/json'</span></span><br><span class="line">ctx.is(<span class="string">'html'</span>, <span class="string">'application/*'</span>); <span class="comment">// =&gt; 'application/json'</span></span><br><span class="line"></span><br><span class="line">ctx.is(<span class="string">'html'</span>); <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
+<p>例如，如果要确保仅将图像发送到给定路由：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ctx.is(<span class="string">'image/*'</span>)) &#123;</span><br><span class="line">  <span class="comment">// 处理</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  ctx.throw(<span class="number">415</span>, <span class="string">'images only!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内容协商"><a href="#内容协商" class="headerlink" title="内容协商"></a>内容协商</h3><p>Koa的 <code>request</code> 对象包括由 <a href="http://github.com/expressjs/accepts" target="_blank" rel="noopener">accepts</a> 和 <a href="https://github.com/federomero/negotiator" target="_blank" rel="noopener">negotiator</a> 提供的有用的内容协商实体。</p>
+<p>这些实用程序是：</p>
+<ul>
+<li><code>request.accepts(types)</code></li>
+<li><code>request.acceptsEncodings(types)</code></li>
+<li><code>request.acceptsCharsets(charsets)</code></li>
+<li><code>request.acceptsLanguages(langs)</code></li>
+</ul>
+<p>如果没有提供类型，则返回 <strong>所有</strong> 可接受的类型。</p>
+<p>如果提供多种类型，将返回最佳匹配。 如果没有找到匹配项，则返回一个<code>false</code>，你应该向客户端发送一个<code>406 &quot;Not Acceptable&quot;</code> 响应。</p>
+<p>如果接收到任何类型的接收头，则会返回第一个类型。 因此，你提供的类型的顺序很重要。</p>
+<h3 id="request-accepts-types"><a href="#request-accepts-types" class="headerlink" title="request.accepts(types)"></a>request.accepts(types)</h3><p>检查给定的 <code>type(s)</code> 是否可以接受，如果 <code>true</code>，返回最佳匹配，否则为 <code>false</code>。 <code>type</code> 值可能是一个或多个 mime 类型的字符串，如 <code>application/json</code>，扩展名称如 <code>json</code>，或数组 <code>[&quot;json&quot;, &quot;html&quot;, &quot;text/plain&quot;]</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept: text/html</span></span><br><span class="line">ctx.accepts(<span class="string">'html'</span>);</span><br><span class="line"><span class="comment">// =&gt; "html"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accept: text/*, application/json</span></span><br><span class="line">ctx.accepts(<span class="string">'html'</span>);</span><br><span class="line"><span class="comment">// =&gt; "html"</span></span><br><span class="line">ctx.accepts(<span class="string">'text/html'</span>);</span><br><span class="line"><span class="comment">// =&gt; "text/html"</span></span><br><span class="line">ctx.accepts(<span class="string">'json'</span>, <span class="string">'text'</span>);</span><br><span class="line"><span class="comment">// =&gt; "json"</span></span><br><span class="line">ctx.accepts(<span class="string">'application/json'</span>);</span><br><span class="line"><span class="comment">// =&gt; "application/json"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accept: text/*, application/json</span></span><br><span class="line">ctx.accepts(<span class="string">'image/png'</span>);</span><br><span class="line">ctx.accepts(<span class="string">'png'</span>);</span><br><span class="line"><span class="comment">// =&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accept: text/*;q=.5, application/json</span></span><br><span class="line">ctx.accepts([<span class="string">'html'</span>, <span class="string">'json'</span>]);</span><br><span class="line">ctx.accepts(<span class="string">'html'</span>, <span class="string">'json'</span>);</span><br><span class="line"><span class="comment">// =&gt; "json"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// No Accept header</span></span><br><span class="line">ctx.accepts(<span class="string">'html'</span>, <span class="string">'json'</span>);</span><br><span class="line"><span class="comment">// =&gt; "html"</span></span><br><span class="line">ctx.accepts(<span class="string">'json'</span>, <span class="string">'html'</span>);</span><br><span class="line"><span class="comment">// =&gt; "json"</span></span><br></pre></td></tr></table></figure>
+<p>你可以根据需要多次调用 <code>ctx.accepts()</code>，或使用 switch：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (ctx.accepts(<span class="string">'json'</span>, <span class="string">'html'</span>, <span class="string">'text'</span>)) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'json'</span>: <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'html'</span>: <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'text'</span>: <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>: ctx.throw(<span class="number">406</span>, <span class="string">'json, html, or text only'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="request-acceptsEncodings-encodings"><a href="#request-acceptsEncodings-encodings" class="headerlink" title="request.acceptsEncodings(encodings)"></a>request.acceptsEncodings(encodings)</h3><p>检查 <code>encodings</code> 是否可以接受，返回最佳匹配为 <code>true</code>，否则为 <code>false</code>。 请注意，您应该将<code>identity</code> 作为编码之一！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Encoding: gzip</span></span><br><span class="line">ctx.acceptsEncodings(<span class="string">'gzip'</span>, <span class="string">'deflate'</span>, <span class="string">'identity'</span>);</span><br><span class="line"><span class="comment">// =&gt; "gzip"</span></span><br><span class="line"></span><br><span class="line">ctx.acceptsEncodings([<span class="string">'gzip'</span>, <span class="string">'deflate'</span>, <span class="string">'identity'</span>]);</span><br><span class="line"><span class="comment">// =&gt; "gzip"</span></span><br></pre></td></tr></table></figure>
+<p>当没有给出参数时，所有接受的编码将作为数组返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Encoding: gzip, deflate</span></span><br><span class="line">ctx.acceptsEncodings();</span><br><span class="line"><span class="comment">// =&gt; ["gzip", "deflate", "identity"]</span></span><br></pre></td></tr></table></figure>
+<p>请注意，如果客户端显式地发送 <code>identity;q=0</code>，那么 <code>identity</code> 编码（这意味着没有编码）可能是不可接受的。 虽然这是一个边缘的情况，你仍然应该处理这种方法返回 <code>false</code> 的情况。</p>
+<h3 id="request-acceptsCharsets-charsets"><a href="#request-acceptsCharsets-charsets" class="headerlink" title="request.acceptsCharsets(charsets)"></a>request.acceptsCharsets(charsets)</h3><p>检查 <code>charsets</code> 是否可以接受，在 <code>true</code> 时返回最佳匹配，否则为 <code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Charset: utf-8, iso-8859-1;q=0.2, utf-7;q=0.5</span></span><br><span class="line">ctx.acceptsCharsets(<span class="string">'utf-8'</span>, <span class="string">'utf-7'</span>);</span><br><span class="line"><span class="comment">// =&gt; "utf-8"</span></span><br><span class="line"></span><br><span class="line">ctx.acceptsCharsets([<span class="string">'utf-7'</span>, <span class="string">'utf-8'</span>]);</span><br><span class="line"><span class="comment">// =&gt; "utf-8"</span></span><br></pre></td></tr></table></figure>
+<p>当没有参数被赋予所有被接受的字符集将作为数组返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Charset: utf-8, iso-8859-1;q=0.2, utf-7;q=0.5</span></span><br><span class="line">ctx.acceptsCharsets();</span><br><span class="line"><span class="comment">// =&gt; ["utf-8", "utf-7", "iso-8859-1"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-acceptsLanguages-langs"><a href="#request-acceptsLanguages-langs" class="headerlink" title="request.acceptsLanguages(langs)"></a>request.acceptsLanguages(langs)</h3><p>检查 <code>langs</code> 是否可以接受，如果为 <code>true</code>，返回最佳匹配，否则为 <code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Language: en;q=0.8, es, pt</span></span><br><span class="line">ctx.acceptsLanguages(<span class="string">'es'</span>, <span class="string">'en'</span>);</span><br><span class="line"><span class="comment">// =&gt; "es"</span></span><br><span class="line"></span><br><span class="line">ctx.acceptsLanguages([<span class="string">'en'</span>, <span class="string">'es'</span>]);</span><br><span class="line"><span class="comment">// =&gt; "es"</span></span><br></pre></td></tr></table></figure>
+<p>当没有参数被赋予所有接受的语言将作为数组返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accept-Language: en;q=0.8, es, pt</span></span><br><span class="line">ctx.acceptsLanguages();</span><br><span class="line"><span class="comment">// =&gt; ["es", "pt", "en"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="request-idempotent"><a href="#request-idempotent" class="headerlink" title="request.idempotent"></a>request.idempotent</h3><p>检查请求是否是幂等的。</p>
+<h3 id="request-socket"><a href="#request-socket" class="headerlink" title="request.socket"></a>request.socket</h3><p>返回请求套接字。</p>
+<h3 id="request-get-field"><a href="#request-get-field" class="headerlink" title="request.get(field)"></a>request.get(field)</h3><p>返回请求标头。</p>
+<h1 id="响应-Response"><a href="#响应-Response" class="headerlink" title="响应(Response)"></a>响应(Response)</h1><p>Koa <code>Response</code> 对象是在 node 的 vanilla 响应对象之上的抽象，提供了诸多对 HTTP 服务器开发有用的功能。</p>
+<h2 id="API-2"><a href="#API-2" class="headerlink" title="API"></a>API</h2><h3 id="response-header"><a href="#response-header" class="headerlink" title="response.header"></a>response.header</h3><p>响应标头对象。</p>
+<h3 id="response-headers"><a href="#response-headers" class="headerlink" title="response.headers"></a>response.headers</h3><p>响应标头对象。别名是 <code>response.header</code>。</p>
+<h3 id="response-socket"><a href="#response-socket" class="headerlink" title="response.socket"></a>response.socket</h3><p>请求套接字。</p>
+<h3 id="response-status"><a href="#response-status" class="headerlink" title="response.status"></a>response.status</h3><p>获取响应状态。默认情况下，<code>response.status</code> 设置为 <code>404</code> 而不是像 node 的 <code>res.statusCode</code> 那样默认为 <code>200</code>。</p>
+<h3 id="response-status-1"><a href="#response-status-1" class="headerlink" title="response.status="></a>response.status=</h3><p>通过数字代码设置响应状态：</p>
+<ul>
+<li>100 “continue”</li>
+<li>101 “switching protocols”</li>
+<li>102 “processing”</li>
+<li>200 “ok”</li>
+<li>201 “created”</li>
+<li>202 “accepted”</li>
+<li>203 “non-authoritative information”</li>
+<li>204 “no content”</li>
+<li>205 “reset content”</li>
+<li>206 “partial content”</li>
+<li>207 “multi-status”</li>
+<li>208 “already reported”</li>
+<li>226 “im used”</li>
+<li>300 “multiple choices”</li>
+<li>301 “moved permanently”</li>
+<li>302 “found”</li>
+<li>303 “see other”</li>
+<li>304 “not modified”</li>
+<li>305 “use proxy”</li>
+<li>307 “temporary redirect”</li>
+<li>308 “permanent redirect”</li>
+<li>400 “bad request”</li>
+<li>401 “unauthorized”</li>
+<li>402 “payment required”</li>
+<li>403 “forbidden”</li>
+<li>404 “not found”</li>
+<li>405 “method not allowed”</li>
+<li>406 “not acceptable”</li>
+<li>407 “proxy authentication required”</li>
+<li>408 “request timeout”</li>
+<li>409 “conflict”</li>
+<li>410 “gone”</li>
+<li>411 “length required”</li>
+<li>412 “precondition failed”</li>
+<li>413 “payload too large”</li>
+<li>414 “uri too long”</li>
+<li>415 “unsupported media type”</li>
+<li>416 “range not satisfiable”</li>
+<li>417 “expectation failed”</li>
+<li>418 “I’m a teapot”</li>
+<li>422 “unprocessable entity”</li>
+<li>423 “locked”</li>
+<li>424 “failed dependency”</li>
+<li>426 “upgrade required”</li>
+<li>428 “precondition required”</li>
+<li>429 “too many requests”</li>
+<li>431 “request header fields too large”</li>
+<li>500 “internal server error”</li>
+<li>501 “not implemented”</li>
+<li>502 “bad gateway”</li>
+<li>503 “service unavailable”</li>
+<li>504 “gateway timeout”</li>
+<li>505 “http version not supported”</li>
+<li>506 “variant also negotiates”</li>
+<li>507 “insufficient storage”</li>
+<li>508 “loop detected”</li>
+<li>510 “not extended”</li>
+<li>511 “network authentication required”</li>
+</ul>
+<p><strong>注意</strong>: 不用太在意记住这些字符串, 如果你写错了,可以查阅这个列表随时更正.</p>
+<h3 id="response-message"><a href="#response-message" class="headerlink" title="response.message"></a>response.message</h3><p>获取响应的状态消息. 默认情况下, <code>response.message</code> 与 <code>response.status</code> 关联.</p>
+<h3 id="response-message-1"><a href="#response-message-1" class="headerlink" title="response.message="></a>response.message=</h3><p>将响应的状态消息设置为给定值。</p>
+<h3 id="response-length"><a href="#response-length" class="headerlink" title="response.length="></a>response.length=</h3><p>将响应的 Content-Length 设置为给定值。</p>
+<h3 id="response-length-1"><a href="#response-length-1" class="headerlink" title="response.length"></a>response.length</h3><p>以数字返回响应的 Content-Length，或者从<code>ctx.body</code>推导出来，或者<code>undefined</code>。</p>
+<h3 id="response-body"><a href="#response-body" class="headerlink" title="response.body"></a>response.body</h3><p>获取响应主体。</p>
+<h3 id="response-body-1"><a href="#response-body-1" class="headerlink" title="response.body="></a>response.body=</h3><p>将响应体设置为以下之一：</p>
+<ul>
+<li><code>string</code> 写入</li>
+<li><code>Buffer</code> 写入</li>
+<li><code>Stream</code> 管道</li>
+<li><code>Object</code> || <code>Array</code> JSON-字符串化</li>
+<li><code>null</code> 无内容响应</li>
+</ul>
+<p>如果 <code>response.status</code> 未被设置, Koa 将会自动设置状态为 <code>200</code> 或 <code>204</code>。</p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><p>Content-Type 默认为 <code>text/html</code> 或 <code>text/plain</code>, 同时默认字符集是 utf-8。Content-Length 字段也是如此。</p>
+<h4 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h4><p>Content-Type 默认为 <code>application/octet-stream</code>, 并且 Content-Length 字段也是如此。</p>
+<h4 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h4><p>Content-Type 默认为 <code>application/octet-stream</code>。</p>
+<p>每当流被设置为响应主体时，<code>.onerror</code> 作为侦听器自动添加到 <code>error</code> 事件中以捕获任何错误。此外，每当请求关闭（甚至过早）时，流都将被销毁。如果你不想要这两个功能，请勿直接将流设为主体。例如，当将主体设置为代理中的 HTTP 流时，你可能不想要这样做，因为它会破坏底层连接。</p>
+<p>参阅: <a href="https://github.com/koajs/koa/pull/612" target="_blank" rel="noopener">https://github.com/koajs/koa/pull/612</a> 获取更多信息。</p>
+<p>以下是流错误处理的示例，而不会自动破坏流：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PassThrough = <span class="built_in">require</span>(<span class="string">'stream'</span>).PassThrough;</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">  ctx.body = someHTTPStream.on(<span class="string">'error'</span>, ctx.onerror).pipe(PassThrough());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h4><p>Content-Type 默认为 <code>application/json</code>. 这包括普通的对象 <code>{ foo: &#39;bar&#39; }</code> 和数组 <code>[&#39;foo&#39;, &#39;bar&#39;]</code>。</p>
+<h3 id="response-get-field"><a href="#response-get-field" class="headerlink" title="response.get(field)"></a>response.get(field)</h3><p>不区分大小写获取响应标头字段值 <code>field</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> etag = ctx.response.get(<span class="string">'ETag'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="response-set-field-value"><a href="#response-set-field-value" class="headerlink" title="response.set(field, value)"></a>response.set(field, value)</h3><p>设置响应标头 <code>field</code> 到 <code>value</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.set(<span class="string">'Cache-Control'</span>, <span class="string">'no-cache'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="response-append-field-value"><a href="#response-append-field-value" class="headerlink" title="response.append(field, value)"></a>response.append(field, value)</h3><p>用值 <code>val</code> 附加额外的标头 <code>field</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.append(<span class="string">'Link'</span>, <span class="string">'&lt;http://127.0.0.1/&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="response-set-fields"><a href="#response-set-fields" class="headerlink" title="response.set(fields)"></a>response.set(fields)</h3><p>用一个对象设置多个响应标头<code>fields</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.set(&#123;</span><br><span class="line">  <span class="string">'Etag'</span>: <span class="string">'1234'</span>,</span><br><span class="line">  <span class="string">'Last-Modified'</span>: date</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="response-remove-field"><a href="#response-remove-field" class="headerlink" title="response.remove(field)"></a>response.remove(field)</h3><p>删除标头 <code>field</code>。</p>
+<h3 id="response-type"><a href="#response-type" class="headerlink" title="response.type"></a>response.type</h3><p>获取响应 <code>Content-Type</code> 不含参数 “charset”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ct = ctx.type;</span><br><span class="line"><span class="comment">// =&gt; "image/png"</span></span><br></pre></td></tr></table></figure>
+<h3 id="response-type-1"><a href="#response-type-1" class="headerlink" title="response.type="></a>response.type=</h3><p>设置响应 <code>Content-Type</code> 通过 mime 字符串或文件扩展名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.type = <span class="string">'text/plain; charset=utf-8'</span>;</span><br><span class="line">ctx.type = <span class="string">'image/png'</span>;</span><br><span class="line">ctx.type = <span class="string">'.png'</span>;</span><br><span class="line">ctx.type = <span class="string">'png'</span>;</span><br></pre></td></tr></table></figure>
+<p>注意: 在适当的情况下为你选择 <code>charset</code>, 比如 <code>response.type = &#39;html&#39;</code> 将默认是 “utf-8”. 如果你想覆盖 <code>charset</code>, 使用 <code>ctx.set(&#39;Content-Type&#39;, &#39;text/html&#39;)</code> 将响应头字段设置为直接值。</p>
+<h3 id="response-is-types…"><a href="#response-is-types…" class="headerlink" title="response.is(types…)"></a>response.is(types…)</h3><p>非常类似 <code>ctx.request.is()</code>. 检查响应类型是否是所提供的类型之一。这对于创建操纵响应的中间件特别有用。</p>
+<p>例如, 这是一个中间件，可以削减除流之外的所有HTML响应。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> minify = <span class="built_in">require</span>(<span class="string">'html-minifier'</span>);</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> next();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!ctx.response.is(<span class="string">'html'</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> body = ctx.body;</span><br><span class="line">  <span class="keyword">if</span> (!body || body.pipe) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (Buffer.isBuffer(body)) body = body.toString();</span><br><span class="line">  ctx.body = minify(body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="response-redirect-url-alt"><a href="#response-redirect-url-alt" class="headerlink" title="response.redirect(url, [alt])"></a>response.redirect(url, [alt])</h3><p>执行 [302] 重定向到 <code>url</code>.</p>
+<p>字符串 “back” 是特别提供Referrer支持的，当Referrer不存在时，使用 <code>alt</code> 或“/”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.redirect(<span class="string">'back'</span>);</span><br><span class="line">ctx.redirect(<span class="string">'back'</span>, <span class="string">'/index.html'</span>);</span><br><span class="line">ctx.redirect(<span class="string">'/login'</span>);</span><br><span class="line">ctx.redirect(<span class="string">'http://google.com'</span>);</span><br></pre></td></tr></table></figure>
+<p>要更改 “302” 的默认状态，只需在该调用之前或之后分配状态。要变更主体请在此调用之后:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.status = <span class="number">301</span>;</span><br><span class="line">ctx.redirect(<span class="string">'/cart'</span>);</span><br><span class="line">ctx.body = <span class="string">'Redirecting to shopping cart'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="response-attachment-filename"><a href="#response-attachment-filename" class="headerlink" title="response.attachment([filename])"></a>response.attachment([filename])</h3><p>将 <code>Content-Disposition</code> 设置为 “附件” 以指示客户端提示下载。(可选)指定下载的 <code>filename</code>。</p>
+<h3 id="response-headerSent"><a href="#response-headerSent" class="headerlink" title="response.headerSent"></a>response.headerSent</h3><p>检查是否已经发送了一个响应头。 用于查看客户端是否可能会收到错误通知。</p>
+<h3 id="response-lastModified"><a href="#response-lastModified" class="headerlink" title="response.lastModified"></a>response.lastModified</h3><p>将 <code>Last-Modified</code> 标头返回为 <code>Date</code>, 如果存在。</p>
+<h3 id="response-lastModified-1"><a href="#response-lastModified-1" class="headerlink" title="response.lastModified="></a>response.lastModified=</h3><p>将 <code>Last-Modified</code> 标头设置为适当的 UTC 字符串。您可以将其设置为 <code>Date</code> 或日期字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.response.lastModified = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="response-etag"><a href="#response-etag" class="headerlink" title="response.etag="></a>response.etag=</h3><p>设置包含 <code>&quot;</code> 包裹的 ETag 响应， 请注意，没有相应的 <code>response.etag</code> getter。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.response.etag = crypto.createHash(<span class="string">'md5'</span>).update(ctx.body).digest(<span class="string">'hex'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="response-vary-field"><a href="#response-vary-field" class="headerlink" title="response.vary(field)"></a>response.vary(field)</h3><p>在 <code>field</code> 上变化。</p>
+<h3 id="response-flushHeaders"><a href="#response-flushHeaders" class="headerlink" title="response.flushHeaders()"></a>response.flushHeaders()</h3><p>刷新任何设置的标头，并开始主体。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> -node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/vue-父子组件通信/" rel="next" title="vue父子组件通信">
+                <i class="fa fa-chevron-left"></i> vue父子组件通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/pirlo.jpg"
+               alt="YuanChiFun" />
+          <p class="site-author-name" itemprop="name">YuanChiFun</p>
+           
+              <p class="site-description motion-element" itemprop="description">An excellent front-end Engineer</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YuanChiFun" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/YuanChiFun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用程序"><span class="nav-text">应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#级联"><span class="nav-text">级联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-text">设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-listen"><span class="nav-text">app.listen()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-callback"><span class="nav-text">app.callback()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use"><span class="nav-text">app.use()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-keys"><span class="nav-text">app.keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-context"><span class="nav-text">app.context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-text">错误处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下文（Context）"><span class="nav-text">上下文（Context）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-req"><span class="nav-text">ctx.req</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#请求-Request"><span class="nav-text">请求(Request)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API-1"><span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#request-header"><span class="nav-text">request.header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-header-1"><span class="nav-text">request.header=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-headers"><span class="nav-text">request.headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-headers-1"><span class="nav-text">request.headers=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-method"><span class="nav-text">request.method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-method-1"><span class="nav-text">request.method=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-length"><span class="nav-text">request.length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-url"><span class="nav-text">request.url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-url-1"><span class="nav-text">request.url=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-originalUrl"><span class="nav-text">request.originalUrl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-origin"><span class="nav-text">request.origin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-href"><span class="nav-text">request.href</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-path"><span class="nav-text">request.path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-path-1"><span class="nav-text">request.path=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-querystring"><span class="nav-text">request.querystring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-querystring-1"><span class="nav-text">request.querystring=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-search"><span class="nav-text">request.search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-search-1"><span class="nav-text">request.search=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-host"><span class="nav-text">request.host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-hostname"><span class="nav-text">request.hostname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-URL"><span class="nav-text">request.URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-type"><span class="nav-text">request.type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-charset"><span class="nav-text">request.charset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-query"><span class="nav-text">request.query</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-query-1"><span class="nav-text">request.query=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-fresh"><span class="nav-text">request.fresh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-stale"><span class="nav-text">request.stale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-protocol"><span class="nav-text">request.protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-secure"><span class="nav-text">request.secure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-ip"><span class="nav-text">request.ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-ips"><span class="nav-text">request.ips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-subdomains"><span class="nav-text">request.subdomains</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-is-types…"><span class="nav-text">request.is(types…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容协商"><span class="nav-text">内容协商</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-accepts-types"><span class="nav-text">request.accepts(types)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-acceptsEncodings-encodings"><span class="nav-text">request.acceptsEncodings(encodings)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-acceptsCharsets-charsets"><span class="nav-text">request.acceptsCharsets(charsets)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-acceptsLanguages-langs"><span class="nav-text">request.acceptsLanguages(langs)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-idempotent"><span class="nav-text">request.idempotent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-socket"><span class="nav-text">request.socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request-get-field"><span class="nav-text">request.get(field)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应-Response"><span class="nav-text">响应(Response)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API-2"><span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#response-header"><span class="nav-text">response.header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-headers"><span class="nav-text">response.headers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-socket"><span class="nav-text">response.socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-status"><span class="nav-text">response.status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-status-1"><span class="nav-text">response.status=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-message"><span class="nav-text">response.message</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-message-1"><span class="nav-text">response.message=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-length"><span class="nav-text">response.length=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-length-1"><span class="nav-text">response.length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-body"><span class="nav-text">response.body</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-body-1"><span class="nav-text">response.body=</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffer"><span class="nav-text">Buffer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stream"><span class="nav-text">Stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object"><span class="nav-text">Object</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-get-field"><span class="nav-text">response.get(field)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-set-field-value"><span class="nav-text">response.set(field, value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-append-field-value"><span class="nav-text">response.append(field, value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-set-fields"><span class="nav-text">response.set(fields)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-remove-field"><span class="nav-text">response.remove(field)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-type"><span class="nav-text">response.type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-type-1"><span class="nav-text">response.type=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-is-types…"><span class="nav-text">response.is(types…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-redirect-url-alt"><span class="nav-text">response.redirect(url, [alt])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-attachment-filename"><span class="nav-text">response.attachment([filename])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-headerSent"><span class="nav-text">response.headerSent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-lastModified"><span class="nav-text">response.lastModified</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-lastModified-1"><span class="nav-text">response.lastModified=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-etag"><span class="nav-text">response.etag=</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-vary-field"><span class="nav-text">response.vary(field)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#response-flushHeaders"><span class="nav-text">response.flushHeaders()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanChiFun</span>
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>&emsp;
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+</div>
+<!-- <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
