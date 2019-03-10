@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="原理在vue.js中，父子组件的关系可以总结为props down,events up 父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。">
+<meta name="description" content="Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化">
 <meta name="keywords" content="-VUE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue父子组件通信">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/vue-父子组件通信/index.html">
+<meta property="og:title" content="Vuex">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/Vuex/index.html">
 <meta property="og:site_name" content="YuanChiFun&#39;s studio">
-<meta property="og:description" content="原理在vue.js中，父子组件的关系可以总结为props down,events up 父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。">
+<meta property="og:description" content="Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T07:25:08.676Z">
+<meta property="og:updated_time" content="2019-03-10T06:41:32.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue父子组件通信">
-<meta name="twitter:description" content="原理在vue.js中，父子组件的关系可以总结为props down,events up 父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。">
+<meta name="twitter:title" content="Vuex">
+<meta name="twitter:description" content="Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化">
 
 
 
@@ -149,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/vue-父子组件通信/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/Vuex/"/>
 
 
 
 
 
-  <title>vue父子组件通信 | YuanChiFun's studio</title>
+  <title>Vuex | YuanChiFun's studio</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/vue-父子组件通信/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/Vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YuanChiFun">
@@ -316,11 +316,15 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue父子组件通信</h1>
+          <h1 class="post-title" itemprop="name headline">Vuex</h1>
         
 
         <div class="post-meta">
          
+            <i class="fa fa-thumb-tack"></i>
+            <font color=7D26CD>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -329,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T15:25:28+08:00">
-                2019-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T14:49:03+08:00">
+                2019-03-10
               </time>
             
 
@@ -420,27 +424,34 @@
       
 
       
-        <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>在vue.js中，父子组件的关系可以总结为props down,events up</p>
-<p>父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。</p>
+        <p>Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</p>
 <a id="more"></a>
-<h1 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h1><p>父组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;input :msg=&quot;inp-value&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">        	inp-value:&apos;parent2son&apos;   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>子组件通过<code>props</code>来接收父组件传过来的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    props:&#123;</span><br><span class="line">        msg:&#123;</span><br><span class="line">            type:String,</span><br><span class="line">            default:()=&gt;&#123;</span><br><span class="line">            	return &apos;&apos;;    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>父组件通过<code>v-bind</code>数据单项传递给子组件传递数据，子组件通过<code>props</code>来接收数据。</p>
-<h1 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h1><p>子组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;div @click=&apos;toParent&apos;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            where:&apos;parent&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    methods:&#123;</span><br><span class="line">        toParent()&#123;</span><br><span class="line">            this.$emit(&apos;toParent&apos;,this.where);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>父组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;div @toParent=&apos;receive&apos;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    methods:&#123;</span><br><span class="line">        receive(msg)&#123;</span><br><span class="line">			console.log(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>子组件通过<code>$emit</code>触发事件来给父组件传递数据，同时，父组件需要监听这个事件来接收数据。</p>
-<h1 id="子组件向子组件传值"><a href="#子组件向子组件传值" class="headerlink" title="子组件向子组件传值"></a>子组件向子组件传值</h1><p>兄弟组件之间传值需要创建一个第三方的实例</p>
-<p>A向B传值</p>
-<p>先实例化一个Vue实例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue();</span><br></pre></td></tr></table></figure>
-<p>子组件A</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;div @click=&apos;post&apos;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    methods:&#123;</span><br><span class="line">        post()&#123;</span><br><span class="line">			vm.$emit(&apos;giveSon&apos;,&apos;hello,bro&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>子组件B</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            broData:&apos;&apos;,</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    created()&#123;</span><br><span class="line">		vm.$on(&apos;giveSon&apos;,msg=&gt;&#123;</span><br><span class="line">            this.broData = msg;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>#State</p>
+<p>Vuex通过<code>store</code>选项，提供了一种机制将状态从跟组件“注入”到每一个子组件中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:#app,</span><br><span class="line">    store,</span><br><span class="line">    components:&#123;<span class="attr">son</span>:Son&#125;,</span><br><span class="line">    template:<span class="string">`&lt;div id="app"&gt;</span></span><br><span class="line"><span class="string">			  	&lt;son/&gt;</span></span><br><span class="line"><span class="string">			  &lt;/div&gt;`</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> Son = &#123;</span><br><span class="line">	template:<span class="string">`&lt;div&gt;&#123;&#123;num&#125;&#125;&lt;/div&gt;`</span>,</span><br><span class="line">    computed:&#123;</span><br><span class="line">		num()&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.$store.state.num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。让我们更新下 <code>Counter</code> 的实现。</p>
+<h1 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h1><p>Vuex允许我们在store中定义”getter”。就像计算属性一样，getter的返回值会根据它的以来被缓存起来，且只有当它的依赖值发生了改变才会被重新计算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count:<span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    doneTodos: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> state.count;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="通过属性访问"><a href="#通过属性访问" class="headerlink" title="通过属性访问"></a>通过属性访问</h2><p>Getter会暴露为<code>store.getters</code>对象，可以以属性的形式访问这些值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count:<span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    Rcount: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> state.count;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//其他组件中</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.Rcount</span><br></pre></td></tr></table></figure>
+<h1 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h1><p>更新Vuex的store中的状态的唯一方法是提交mutation,mutation非常类似于事件“每个Mutation都有一个字符串的事件类型和一个回调函数。这个回调函数就是我们实际进行状态更改的地方，并且它会接收state作为第一个参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    add (state,n) &#123;</span><br><span class="line">      state.count += n</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.commit(<span class="string">'increment'</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>Mutation必须是同步函数</p>
+<p>因为异步函数中的回调函数会让Vuex不知道什么时候回调函数被调用，任何在回调函数中进行的状态改变都是不可追踪的。当调用了两个包含异步回调的mutation来改变状态，无法判断是么时候回调和哪个先回调。</p>
+<h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><p>Action类似于mutation，不同在于</p>
+<ul>
+<li>Action提交的是mutation，而不是直接更改状态</li>
+<li>Action可以包含任意异步操作</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    add (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    add (context) &#123;</span><br><span class="line">      context.commit(<span class="string">'add'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 <code>context.commit</code> 提交一个 mutation，或者通过 <code>context.state</code> 和 <code>context.getters</code> 来获取 state 和 getters。</p>
+<h2 id="分发Action"><a href="#分发Action" class="headerlink" title="分发Action"></a>分发Action</h2><h3 id="分发-Action"><a href="#分发-Action" class="headerlink" title="分发 Action"></a>分发 Action</h3><p>Action 通过 <code>store.dispatch</code> 方法触发：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.dispatch(<span class="string">'add'</span>)</span><br></pre></td></tr></table></figure>
+<p>这里使用<a href="https://vuex.vuejs.org/zh/guide/actions.html" target="_blank" rel="noopener">官方文档</a>中的例子，涉及到调用异步API和分发多重mutations</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  checkout (&#123; commit, state &#125;, products) &#123;</span><br><span class="line">    <span class="comment">// 把当前购物车的物品备份起来</span></span><br><span class="line">    <span class="keyword">const</span> savedCartItems = [...state.cart.added]</span><br><span class="line">    <span class="comment">// 发出结账请求，然后乐观地清空购物车</span></span><br><span class="line">    commit(types.CHECKOUT_REQUEST)</span><br><span class="line">    <span class="comment">// 购物 API 接受一个成功回调和一个失败回调</span></span><br><span class="line">    shop.buyProducts(</span><br><span class="line">      products,</span><br><span class="line">      <span class="comment">// 成功操作</span></span><br><span class="line">      () =&gt; commit(types.CHECKOUT_SUCCESS),</span><br><span class="line">      <span class="comment">// 失败操作</span></span><br><span class="line">      () =&gt; commit(types.CHECKOUT_FAILURE, savedCartItems)</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="组合Action"><a href="#组合Action" class="headerlink" title="组合Action"></a>组合Action</h2><p><code>store.dispatch</code> 可以处理被触发的 action 的处理函数返回的 Promise，并且 <code>store.dispatch</code> 仍旧返回 Promise</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  <span class="keyword">async</span> actionA (&#123; commit &#125;) &#123;</span><br><span class="line">    commit(<span class="string">'gotData'</span>, <span class="keyword">await</span> getData())</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">async</span> actionB (&#123; dispatch, commit &#125;) &#123;</span><br><span class="line">    <span class="keyword">await</span> dispatch(<span class="string">'actionA'</span>) <span class="comment">// 等待 actionA 完成</span></span><br><span class="line">    commit(<span class="string">'gotOtherData'</span>, <span class="keyword">await</span> getOtherData())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -471,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/06/Cookie,session,webStorage/" rel="next" title="Cookie,Session,webStorage">
-                <i class="fa fa-chevron-left"></i> Cookie,Session,webStorage
+              <a href="/2019/03/08/Koa/" rel="next" title="Koa 基础语法">
+                <i class="fa fa-chevron-left"></i> Koa 基础语法
               </a>
             
           </div>
@@ -480,10 +491,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/Koa/" rel="prev" title="Koa 基础语法">
-                Koa 基础语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#父组件向子组件传值"><span class="nav-text">父组件向子组件传值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子组件向父组件传值"><span class="nav-text">子组件向父组件传值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子组件向子组件传值"><span class="nav-text">子组件向子组件传值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Getter"><span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过属性访问"><span class="nav-text">通过属性访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mutation"><span class="nav-text">Mutation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分发Action"><span class="nav-text">分发Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发-Action"><span class="nav-text">分发 Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合Action"><span class="nav-text">组合Action</span></a></li></ol></li></ol></div>
             
 
           </div>
