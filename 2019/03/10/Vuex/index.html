@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="YuanChiFun&#39;s studio">
 <meta property="og:description" content="Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-10T06:41:32.508Z">
+<meta property="og:updated_time" content="2019-03-10T09:19:14.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex">
 <meta name="twitter:description" content="Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化">
@@ -426,8 +426,7 @@
       
         <p>Vuex是一个专为Vue开发的状态管理模式。采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</p>
 <a id="more"></a>
-<p>#State</p>
-<p>Vuex通过<code>store</code>选项，提供了一种机制将状态从跟组件“注入”到每一个子组件中</p>
+<h1 id="State"><a href="#State" class="headerlink" title="State"></a>State</h1><p>Vuex通过<code>store</code>选项，提供了一种机制将状态从跟组件“注入”到每一个子组件中</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:#app,</span><br><span class="line">    store,</span><br><span class="line">    components:&#123;<span class="attr">son</span>:Son&#125;,</span><br><span class="line">    template:<span class="string">`&lt;div id="app"&gt;</span></span><br><span class="line"><span class="string">			  	&lt;son/&gt;</span></span><br><span class="line"><span class="string">			  &lt;/div&gt;`</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> Son = &#123;</span><br><span class="line">	template:<span class="string">`&lt;div&gt;&#123;&#123;num&#125;&#125;&lt;/div&gt;`</span>,</span><br><span class="line">    computed:&#123;</span><br><span class="line">		num()&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.$store.state.num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通过在根实例中注册 <code>store</code> 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 <code>this.$store</code> 访问到。让我们更新下 <code>Counter</code> 的实现。</p>
 <h1 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h1><p>Vuex允许我们在store中定义”getter”。就像计算属性一样，getter的返回值会根据它的以来被缓存起来，且只有当它的依赖值发生了改变才会被重新计算</p>
@@ -648,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Getter"><span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过属性访问"><span class="nav-text">通过属性访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mutation"><span class="nav-text">Mutation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分发Action"><span class="nav-text">分发Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发-Action"><span class="nav-text">分发 Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合Action"><span class="nav-text">组合Action</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#State"><span class="nav-text">State</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getter"><span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过属性访问"><span class="nav-text">通过属性访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mutation"><span class="nav-text">Mutation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分发Action"><span class="nav-text">分发Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发-Action"><span class="nav-text">分发 Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合Action"><span class="nav-text">组合Action</span></a></li></ol></li></ol></div>
             
 
           </div>
