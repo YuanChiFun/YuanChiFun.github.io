@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-CSS," />
+  <meta name="keywords" content="-JavaScript," />
 
 
 
@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="Flex布局2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。">
-<meta name="keywords" content="-CSS">
+<meta name="description" content="在JavaScript编程中，如果将一个变量赋值给另一个变量，那么两者的值，会是同一个引用，其中的一个值发生了改变，另一个也会随之发生变化。但是在编程中，我们有时候不希望出现这样的结果，那该怎么办呢，这就涉及到了深浅拷贝的概念了。">
+<meta name="keywords" content="-JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flex布局">
-<meta property="og:url" content="http://yoursite.com/2019/03/05/Flex布局/index.html">
+<meta property="og:title" content="JavaScript中的深浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/JavaScript中的深浅拷贝/index.html">
 <meta property="og:site_name" content="YuanChiFun&#39;s studio">
-<meta property="og:description" content="Flex布局2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。">
+<meta property="og:description" content="在JavaScript编程中，如果将一个变量赋值给另一个变量，那么两者的值，会是同一个引用，其中的一个值发生了改变，另一个也会随之发生变化。但是在编程中，我们有时候不希望出现这样的结果，那该怎么办呢，这就涉及到了深浅拷贝的概念了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T13:59:41.984Z">
+<meta property="og:updated_time" content="2019-03-11T14:47:57.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flex布局">
-<meta name="twitter:description" content="Flex布局2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。">
+<meta name="twitter:title" content="JavaScript中的深浅拷贝">
+<meta name="twitter:description" content="在JavaScript编程中，如果将一个变量赋值给另一个变量，那么两者的值，会是同一个引用，其中的一个值发生了改变，另一个也会随之发生变化。但是在编程中，我们有时候不希望出现这样的结果，那该怎么办呢，这就涉及到了深浅拷贝的概念了。">
 
 
 
@@ -149,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/05/Flex布局/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/JavaScript中的深浅拷贝/"/>
 
 
 
 
 
-  <title>Flex布局 | YuanChiFun's studio</title>
+  <title>JavaScript中的深浅拷贝 | YuanChiFun's studio</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/Flex布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/JavaScript中的深浅拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YuanChiFun">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Flex布局</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript中的深浅拷贝</h1>
         
 
         <div class="post-meta">
@@ -329,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T21:56:37+08:00">
-                2019-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T22:48:34+08:00">
+                2019-03-11
               </time>
             
 
@@ -352,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">-CSS</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">-JavaScript</span>
                   </a>
                 </span>
 
@@ -420,88 +420,29 @@
       
 
       
-        <h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><p>2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。</p>
+        <p>在JavaScript编程中，如果将一个变量赋值给另一个变量，那么两者的值，会是同一个引用，其中的一个值发生了改变，另一个也会随之发生变化。但是在编程中，我们有时候不希望出现这样的结果，那该怎么办呢，这就涉及到了深浅拷贝的概念了。</p>
 <a id="more"></a>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Flex布局意为弹性布局，用来为盒状模型提供最大的灵活性</p>
-<p>任何一个容器都可以制定为flex布局,行内元素也可以，webkit内核的浏览器，必须加上<code>-webkit</code>前缀。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">display</span>:inline-flex;<span class="comment">/*行内元素*/</span></span><br><span class="line">    <span class="attribute">display</span>:-webkit-flex;<span class="comment">/*webkit内核浏览器*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>当把容器设置为flex布局后，子元素的<code>float</code>,<code>clear</code>,<code>vertical-align</code>都将失效</strong></p>
-<p>采用 Flex 布局的元素，称为 Flex 容器。它的所有子元素自动成为容器成员，称为 Flex 项目。</p>
-<p>容器默认存在两根轴：水平的主轴和垂直的交叉轴。主轴的开始位置叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
-<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p>
-<h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><p>flex布局有六种属性</p>
-<ul>
-<li>flex-direction</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ul>
-<h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p><code>flex-direction</code>属性决定主轴的方向</p>
-<p>属性值：</p>
-<ul>
-<li>row:项目由左向右排列（默认值）</li>
-<li>row-reverse:项目由右向左排列</li>
-<li>column:项目由上向下排列</li>
-<li>column-reverse:项目由下向上排列</li>
-</ul>
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>默认情况下，项目都排在一条线上，<code>flex-wrap</code>属性定义，当一行排不下时，如何换行。</p>
-<p>属性值：</p>
-<ul>
-<li>norwap:不换行（默认）</li>
-<li>wrap:换行，第一行在上方</li>
-<li>wrap-reverse:换行，第一行在下方</li>
-</ul>
-<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">	<span class="attribute">flex-flow</span>:&lt;flex-direction&gt; || &lt;flex-wrap&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
-<p>属性值：</p>
-<ul>
-<li>flex-start：左对齐（默认）</li>
-<li>flex-end：右对齐</li>
-<li>center：居中</li>
-<li>space-between：两端对齐，项目之间的间隔都相等</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框间隔大一倍</li>
-</ul>
-<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
-<p>属性值：</p>
-<ul>
-<li>flex-start:交叉轴的起点对齐</li>
-<li>flex-end:交叉轴的终点对齐</li>
-<li>center:交叉轴的中点对齐</li>
-<li>baseline:项目的第一行文字的基线对齐</li>
-<li>stretch:如果项目未设置高度或设为auto，将占满整个容器的高度(默认值)</li>
-</ul>
-<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<p>属性值</p>
-<ul>
-<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
-<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
-<li><code>center</code>：与交叉轴的中点对齐。</li>
-<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
-</ul>
-<h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
-<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
-<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
-<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p>
-<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
-<p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p>
-<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
-<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
-<p>属性名：</p>
-<ul>
-<li>auto</li>
-<li>flex-start</li>
-<li>flex-end</li>
-<li>center</li>
-<li>stretch</li>
-<li>baseline</li>
-</ul>
-<p>除了auto其他与align-items属性完全一致</p>
+<blockquote>
+<p>在JavaScript中，数据有的保存机制有两种，基本数据类型保存在栈中，而引用数据类型保存在堆中，这是为什么呢？因为栈中保存的必须是固定大小的数据，而大小不固定的数据只能保存在堆中，我们通过地址来访问。因为这种保存方式的存在，引出了深浅拷贝的问题</p>
+</blockquote>
+<h1 id="一个栗子"><a href="#一个栗子" class="headerlink" title="一个栗子"></a>一个栗子</h1><p>首先，我们先来看一个栗子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> basketballStar = <span class="string">'Nash'</span>;</span><br><span class="line"><span class="keyword">let</span> basketballStarCopy = basketballStar;</span><br><span class="line">basketballStar = <span class="string">'Rose'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(basketballStarCopy);<span class="comment">//'Nash'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> footballStar = [<span class="string">'Pirlo'</span>,<span class="string">'Buffon'</span>];</span><br><span class="line"><span class="keyword">let</span> footballStarCopy = footballStar;</span><br><span class="line">star.push(<span class="string">'Dybala'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(star) <span class="comment">// 'Pirlo','Buffon','Dybala'</span></span><br></pre></td></tr></table></figure>
+<p>为什么两种拷贝后改变值一种拷贝后的值没有改变，另一种却发生了改变？正如我们上面所说的，因为第一种是基本数据类型赋值操作，在保存后，是被保存到了栈中，所以是两个不同的数据，互不相关。但是第二个是数组的赋值操作，属于复杂数据类型，也就是引用类型。在拷贝一个复杂数据类型时，拷贝的是其在堆中的地址。所以初始和拷贝所操作的是同一个地址下的复杂数据类型。在上面的栗子中，也就是同一个数据类型。</p>
+<p>但我们在开发中不想出现这种问题，那该怎么办？我们继续往下看。</p>
+<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>如果我们将复杂数据类型转换成基本数据类型呢，看下面这段代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = [<span class="string">'Pirlo'</span>, <span class="string">'Buffon'</span>, <span class="string">'Nash'</span>];</span><br><span class="line"><span class="keyword">let</span> starCopy = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; star.length; i++) &#123;</span><br><span class="line">    starCopy[i] = star[i];</span><br><span class="line">&#125;</span><br><span class="line">star.push(<span class="string">'Rose'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(starCopy); <span class="comment">//'Pirlo', 'Buffon', 'Nash'</span></span><br></pre></td></tr></table></figure>
+<p>通过这样的方式，我们的问题得到了解决</p>
+<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h2><p><code>Object.assign</code> 方法会拷贝源对象自身的并且可枚举的属性到目标对象。</p>
+<p>使用<code>Object.assign</code> 可以实现浅拷贝</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = [<span class="string">'Pirlo'</span>, <span class="string">'Buffon'</span>, <span class="string">'Nash'</span>];</span><br><span class="line"><span class="keyword">let</span> starCopy = <span class="built_in">Object</span>.assign(&#123;&#125;,star);</span><br><span class="line">star.push(<span class="string">'Rose'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(starCopy); <span class="comment">//'Pirlo', 'Buffon', 'Nash'</span></span><br></pre></td></tr></table></figure>
+<h2 id="…展开运算符"><a href="#…展开运算符" class="headerlink" title="…展开运算符"></a>…展开运算符</h2><p>ES6中的<code>...</code>展开运算符也可以用来实现浅拷贝</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = [<span class="string">'Pirlo'</span>, <span class="string">'Buffon'</span>, <span class="string">'Nash'</span>];</span><br><span class="line"><span class="keyword">let</span> starCopy = [...star]</span><br><span class="line">star.push(<span class="string">'Rose'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(starCopy); <span class="comment">//'Pirlo', 'Buffon', 'Nash'</span></span><br></pre></td></tr></table></figure>
+<p>数组使用<code>slice</code>方法和<code>concat</code>方法也可以用来浅拷贝。</p>
+<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>在浅拷贝中，我们已经实现了复杂数据类型的拷贝，很多人都会觉得浅拷贝已经完成了复杂数据类型的拷贝，还要深拷贝做什么用呢？</p>
+<p>我们来看以下例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = &#123;</span><br><span class="line">	football:&#123;</span><br><span class="line">		one:<span class="string">'Pirlo'</span>,</span><br><span class="line">        two:<span class="string">'Buffon'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    basketball:&#123;</span><br><span class="line">		one:<span class="string">'Nash'</span>,</span><br><span class="line">    	two:<span class="string">'Rose'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> starCopy1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> starCopy2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; star.length; i++) &#123;</span><br><span class="line">    starCopy1[i] = star[i];</span><br><span class="line">&#125;</span><br><span class="line">starCopy2 = <span class="built_in">Object</span>.assign(&#123;&#125;,star);</span><br><span class="line"></span><br><span class="line">star.football.three = <span class="string">'Dybala'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(starCopy1);</span><br><span class="line"><span class="built_in">console</span>.log(starCopy2);</span><br><span class="line"><span class="comment">/*&#123; football: &#123; one: 'Pirlo', two: 'Buffon', three: 'Dybala' &#125;,</span></span><br><span class="line"><span class="comment"> basketball: &#123; one: 'Nash', two: 'Rose' &#125; &#125;</span></span><br><span class="line"><span class="comment">&#123; football: &#123; one: 'Pirlo', two: 'Buffon', three: 'Dybala' &#125;,</span></span><br><span class="line"><span class="comment"> basketball: &#123; one: 'Nash', two: 'Rose' &#125; &#125;*/</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看到当一个复杂数据类型中的基本数据变为复杂数据类型后，浅拷贝就失去了效果。这是就需要用到深拷贝。需要将复杂数据类型中嵌套的复杂数据类型一一解析成基本数据类型，这时就需要使用递归来解决。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> result;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(obj) == <span class="string">'[Object Array]'</span>) &#123;</span><br><span class="line">            result = [];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; obj.length; i++) &#123;</span><br><span class="line">                result[i] = deepCopy(obj[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(obj) == <span class="string">'[Object Object]'</span>) &#123;</span><br><span class="line">            result = &#123;&#125;;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">                result[key] = deepCopy(obj[key]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> obj;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -519,7 +460,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> -CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> -JavaScript</a>
           
         </div>
       
@@ -532,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/跨域/" rel="next" title="跨域">
-                <i class="fa fa-chevron-left"></i> 跨域
+              <a href="/2019/03/10/Vuex/" rel="next" title="Vuex">
+                <i class="fa fa-chevron-left"></i> Vuex
               </a>
             
           </div>
@@ -541,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/05/行内元素、块状元素、行内块状元素的区别/" rel="prev" title="行内元素、块状元素、行内块状元素的区别">
-                行内元素、块状元素、行内块状元素的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -702,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flex布局"><span class="nav-text">Flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器的属性"><span class="nav-text">容器的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction"><span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap"><span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-flow"><span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content"><span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-items"><span class="nav-text">align-items</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-content"><span class="nav-text">align-content</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目的属性"><span class="nav-text">项目的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#order"><span class="nav-text">order</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-grow"><span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-shrink"><span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-basis"><span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex"><span class="nav-text">flex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-self"><span class="nav-text">align-self</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个栗子"><span class="nav-text">一个栗子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浅拷贝"><span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign"><span class="nav-text">Object.assign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#…展开运算符"><span class="nav-text">…展开运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深拷贝"><span class="nav-text">深拷贝</span></a></li></ol></div>
             
 
           </div>
