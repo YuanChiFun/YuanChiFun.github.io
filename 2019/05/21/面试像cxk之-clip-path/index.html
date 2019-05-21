@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/ellipse.jpg?raw=true">
 <meta property="og:image" content="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/polygon-Dialog.jpg?raw=true">
 <meta property="og:image" content="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/star.jpg?raw=true">
-<meta property="og:updated_time" content="2019-05-21T04:14:49.811Z">
+<meta property="og:updated_time" content="2019-05-21T08:21:06.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview like cxk系列之( clip-path )">
 <meta name="twitter:description" content="在上周三早上的时候，我接到了百度一面的电话，一面的表现还算不错，面试官给的评价也还挺好的，二面的表现，emmmmm不谈了，我能在大家上班的事件写博客，结果我不说你们也知道，今天主要说说面试中我没有答上来的一个问题而且我觉得值得我去学习，就是：你能说说除了border-radius还能用什么方法实现一个圆形吗。当时听到这个题，我懵了。平时的我只会用用border-radius。这也是我自身的一个很大">
@@ -437,24 +437,24 @@
 <p>定义一个矩形，这里不是rect(),而是inset()</p>
 </blockquote>
 <h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>clip-path:inset(top right bottom left round radius)</code></p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/rect.png?raw=true" alt=""></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/rect.png?raw=true" alt=""></p>
 <h2 id="circle"><a href="#circle" class="headerlink" title="circle"></a>circle</h2><blockquote>
 <p>定义一个圆</p>
 </blockquote>
 <h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><p><code>clip-path(radius at left top)</code></p>
 <p>其中<code>radius</code>为半径大小，<code>at</code>代表圆心，<code>left top</code>代表圆心的位置</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/circle.jpg?raw=true" alt=""></p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/circle.jpg?raw=true" alt=""></p>
 <h2 id="ellispse"><a href="#ellispse" class="headerlink" title="ellispse"></a>ellispse</h2><blockquote>
 <p>定义一个椭圆</p>
 </blockquote>
 <h3 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h3><p><code>clip-path:ellipse(widthRadius heightRadius at left top)</code></p>
-<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/ellipse.jpg?raw=true" alt=""></p>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/ellipse.jpg?raw=true" alt=""></p>
 <h2 id="polygon"><a href="#polygon" class="headerlink" title="polygon"></a>polygon</h2><blockquote>
 <p>定义一个多边形</p>
 </blockquote>
 <h3 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h3><p><code>clip-path:polygon(&lt;fill-rule&gt;? , [ &lt;length-percentage&gt; &lt;length-percentage&gt; ]#)</code></p>
-<p>这个就比较难理解了，<code>&lt;fill-rule&gt;</code>可选，表示填充规则用来填充该多边形的内容，默认值为<code>nonezero1</code>,后面的参数表示多边形的顶点坐标(x,y)，也就是连接点</p>
-<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p>这里给大家举一个简单的例子和复杂的例子</p>
+<p>这个就比较难理解了，<code>&lt;fill-rule&gt;</code>可选，表示填充规则用来填充该多边形的内容，默认值为<code>nonezero</code>,后面的参数表示多边形的顶点坐标(x,y)，也就是连接点</p>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><p>这里给大家举一个简单的例子和复杂的例子</p>
 <h4 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h4><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/polygon-Dialog.jpg?raw=true" alt=""></p>
 <h4 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h4><p><img src="https://github.com/YuanChiFun/blog-img/blob/master/%E9%9D%A2%E8%AF%95%E5%83%8Fcxk%E4%B9%8B-clip-path/star.jpg?raw=true" alt=""></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>实现这类图形我们也可以利用盒模型，<code>clip-path</code>的兼容性还不是很好，但我们发现这种实现起来要比盒模型实现简单的多。我们在特定情况下使用<code>clip-path</code>。<code>clip-path</code>最大的用处就是可以配合动画一起使用，有兴趣的同学可以学习一下。</p>
@@ -654,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#裁剪路径"><span class="nav-text">裁剪路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#裁剪区域"><span class="nav-text">裁剪区域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inset"><span class="nav-text">inset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#circle"><span class="nav-text">circle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-1"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ellispse"><span class="nav-text">ellispse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-2"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polygon"><span class="nav-text">polygon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-3"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-2"><span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对话框"><span class="nav-text">对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五角星"><span class="nav-text">五角星</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#裁剪路径"><span class="nav-text">裁剪路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#裁剪区域"><span class="nav-text">裁剪区域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#inset"><span class="nav-text">inset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#circle"><span class="nav-text">circle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-1"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ellispse"><span class="nav-text">ellispse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-2"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-2"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polygon"><span class="nav-text">polygon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-3"><span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-3"><span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对话框"><span class="nav-text">对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五角星"><span class="nav-text">五角星</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
