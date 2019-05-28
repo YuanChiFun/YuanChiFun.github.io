@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-JavaScript," />
+  <meta name="keywords" content="JavaScript,闭包," />
 
 
 
@@ -110,14 +110,14 @@
 
 
 <meta name="description" content="你不知道的JS（作用域和闭包）作用域编译原理编译过程 分词/词法分析  这个过程会将由字符组成的字符串分解成有意义的代码块，这些代码块被称为词法单元   解析/语法分析  这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。   代码生成  将AST转换为可执行代码的过程">
-<meta name="keywords" content="-JavaScript">
+<meta name="keywords" content="JavaScript,闭包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你不知道的JS（作用域和闭包）">
 <meta property="og:url" content="http://yoursite.com/2019/02/12/你不知道的JS（作用域和闭包）/index.html">
 <meta property="og:site_name" content="YuanChiFun&#39;s studio">
 <meta property="og:description" content="你不知道的JS（作用域和闭包）作用域编译原理编译过程 分词/词法分析  这个过程会将由字符组成的字符串分解成有意义的代码块，这些代码块被称为词法单元   解析/语法分析  这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。   代码生成  将AST转换为可执行代码的过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-12T03:22:05.675Z">
+<meta property="og:updated_time" content="2019-05-28T06:49:55.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的JS（作用域和闭包）">
 <meta name="twitter:description" content="你不知道的JS（作用域和闭包）作用域编译原理编译过程 分词/词法分析  这个过程会将由字符组成的字符串分解成有意义的代码块，这些代码块被称为词法单元   解析/语法分析  这个过程是将词法单元流（数组）转换成一个由元素逐级嵌套所组成的代表了程序语法结构的树。   代码生成  将AST转换为可执行代码的过程">
@@ -353,7 +353,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">-JavaScript</span>
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -443,8 +443,7 @@
 <h3 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h3><ul>
 <li>变量的赋值操作会执行两个动作，首先编译器会在当前作用域中声明一个变量（如果之前没有声明过），肉厚在运行时殷勤会在作用域中查找该变量，如果能找到就对它赋值</li>
 </ul>
-<p>####LHS和RHS</p>
-<blockquote>
+<h4 id="LHS和RHS"><a href="#LHS和RHS" class="headerlink" title="LHS和RHS"></a>LHS和RHS</h4><blockquote>
 <p>一个赋值操作的左侧和右侧，赋值操作的目标是谁（LHS）和谁是赋值操作的源头（RHS）</p>
 </blockquote>
 <ul>
@@ -603,7 +602,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> -JavaScript</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
           
         </div>
       
@@ -727,7 +728,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -786,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你不知道的JS（作用域和闭包）"><span class="nav-text">你不知道的JS（作用域和闭包）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译原理"><span class="nav-text">编译原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译过程"><span class="nav-text">编译过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解作用域"><span class="nav-text">理解作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用于嵌套"><span class="nav-text">作用于嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法作用域"><span class="nav-text">词法作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法阶段"><span class="nav-text">词法阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欺骗词法"><span class="nav-text">欺骗词法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eval"><span class="nav-text">eval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with"><span class="nav-text">with</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域和块作用域"><span class="nav-text">函数作用域和块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数中的作用域"><span class="nav-text">函数中的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规避冲突"><span class="nav-text">规避冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名和具名"><span class="nav-text">匿名和具名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块作用域"><span class="nav-text">块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#with-1"><span class="nav-text">with</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch"><span class="nav-text">try/catch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let-const"><span class="nav-text">let/const</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升"><span class="nav-text">提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先有声明后有赋值"><span class="nav-text">先有声明后有赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数优先"><span class="nav-text">函数优先</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域闭包"><span class="nav-text">作用域闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环和闭包"><span class="nav-text">循环和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let"><span class="nav-text">let</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-text">模块</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你不知道的JS（作用域和闭包）"><span class="nav-text">你不知道的JS（作用域和闭包）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译原理"><span class="nav-text">编译原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译过程"><span class="nav-text">编译过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解作用域"><span class="nav-text">理解作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LHS和RHS"><span class="nav-text">LHS和RHS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用于嵌套"><span class="nav-text">作用于嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常"><span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法作用域"><span class="nav-text">词法作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法阶段"><span class="nav-text">词法阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欺骗词法"><span class="nav-text">欺骗词法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eval"><span class="nav-text">eval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with"><span class="nav-text">with</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域和块作用域"><span class="nav-text">函数作用域和块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数中的作用域"><span class="nav-text">函数中的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规避冲突"><span class="nav-text">规避冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名和具名"><span class="nav-text">匿名和具名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块作用域"><span class="nav-text">块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#with-1"><span class="nav-text">with</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch"><span class="nav-text">try/catch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#let-const"><span class="nav-text">let/const</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升"><span class="nav-text">提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先有声明后有赋值"><span class="nav-text">先有声明后有赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数优先"><span class="nav-text">函数优先</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域闭包"><span class="nav-text">作用域闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环和闭包"><span class="nav-text">循环和闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#let"><span class="nav-text">let</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-text">模块</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
